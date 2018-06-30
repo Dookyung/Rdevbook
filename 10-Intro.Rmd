@@ -1,0 +1,66 @@
+```{r include=FALSE, cache=FALSE}
+set.seed(1014)
+options(digits = 3)
+
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  cache = FALSE,
+  out.width = "90%",
+  fig.align = 'center',
+  fig.width = 6,
+  fig.asp = 0.618,  # 1 / phi
+  fig.show = "hold"
+)
+
+options(dplyr.print_min = 6, dplyr.print_max = 6)
+
+```
+# (PART) Introduction {-} 
+
+# Introduction
+
+Data science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge. The goal of "Data Scientist Handbook" is to help you learn the most important tools in R that will allow you to do data science. After reading this book, you'll have the tools to tackle a wide variety of data science challenges, using the best parts of R. 
+
+한국은행에서의 경험을 바탕으로 경제학, 리서처의 관점에서 데이터 분석과 관련한 Best Practice를 제시
+
+## What you will learn
+
+Data science is a huge field, and there's no way you can master it by reading a single book. The goal of this book is to give you a solid foundation in the most important tools. Our model of the tools needed in a typical data science project looks something like this:
+
+```{r echo = FALSE, out.width = "75%"}
+knitr::include_graphics("diagrams/data-science.png")
+```
+
+프로그램언어를 배우는 것은 언어를 배우는 것과 같음
+단어와 문법을 배워야하며 세련된 방식으로 대화하기 위해서는 Best Practice를 알아야 함
+가장 좋은 방법은 Cheatsheet활용, 좋은 문법책을 선택, 그 나라에서 가서 살아보기(실제 개발자들이 프로그래밍한 프로그램을 가지고 놀기)
+
+tidyverse
+
+
+## RStudio Cheat Sheets
+
+The cheat sheets make it easy to learn about and use some of our favorite packages. They are published in their respective PDF versions here: https://www.rstudio.com/resources/cheatsheets/, some are also available in the RStudio IDE under Help-Cheatsheets.
+
+This repository contains the source Apple Keynote files or the current, archived and translated versions.
+
+The cheat sheets use the creative commons copyright. Please see the LICENSE document for more details.
+
+
+
+
+
+
+
+## Colophon
+
+An online version of this book is available at <http://r4ds.had.co.nz>. It will continue to evolve in between reprints of the physical book. The source of the book is available at <https://github.com/hadley/r4ds>. The book is powered by <https://bookdown.org> which makes it easy to turn R markdown files into HTML, PDF, and EPUB.
+
+This book was built with:
+
+```{r}
+devtools::session_info(c("tidyverse"))
+```
+
+

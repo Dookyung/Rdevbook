@@ -1,0 +1,43 @@
+
+# Tidyverse & Bigdata
+
+
+## Base R (minimum)
+
+## Tidyverse
+
+## Functional Programming
+
+### Big data
+
+This book proudly focuses on small, in-memory datasets. This is the right place to start because you can't tackle big data unless you have experience with small data. The tools you learn in this book will easily handle hundreds of megabytes of data, and with a little care you can typically use them to work with 1-2 Gb of data. (1~2Gb 정도 데이터가 주 대상)
+
+If you're routinely working with larger data (10-100 Gb, say), you should learn more about [data.table](https://github.com/Rdatatable/data.table). This book doesn't teach data.table because it has a very concise interface which makes it harder to learn since it offers fewer linguistic cues. But if you're working with large data, the performance payoff is worth the extra effort required to learn it. (10~100Gb는 데이터테이블 배워야)
+
+If your data is bigger than this, carefully consider if your big data problem might actually be a small data problem in disguise. While the complete data might be big, often the data needed to answer a specific question is small. You might be able to find a subset, subsample, or summary that fits in memory and still allows you to answer the question that you're interested in. The challenge here is finding the right small data, which often requires a lot of iteration.(그보다 큰 데이터는 subset & iteration)
+
+Another possibility is that your big data problem is actually a large number of small data problems. Each individual problem might fit in memory, but you have millions of them. For example, you might want to fit a model to each person in your dataset. That would be trivial if you had just 10 or 100 people, but instead you have a million. Fortunately each problem is independent of the others (a setup that is sometimes called embarrassingly parallel), so you just need a system (like Hadoop or Spark) that allows you to send different datasets to different computers for processing. Once you've figured out how to answer the question for a single subset using the tools described in this book, you learn new tools like sparklyr, rhipe, and ddr to solve it for the full dataset.(수천만건의 독립적인 데이터 : parallels, sparklyr, rhipe, ddr )
+
+
+## HighPerformance R
+
+## Reproducible Research
+
+## Applications
+
+### Non-rectangular data
+
+This book focuses exclusively on rectangular data: collections of values that are each associated with a variable and an observation. There are lots of datasets that do not naturally fit in this paradigm: including images, sounds, trees, and text. But rectangular data frames are extremely common in science and industry, and we believe that they are a great place to start your data science journey.
+
+### API
+
+### 크롤링 (python 포함)  - 연동
+
+### 데이터 reading
+
+### 데이터 정제
+
+### visualization
+
+### modeling
+

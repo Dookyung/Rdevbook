@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Data Scientist Handbook</title>
+  <meta name="description" content="This book will teach you how to do data science with R. You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it. In this book, you will find a practicum of skills for data science. Just as a chemist learns how to clean test tubes and stock a lab, you’ll learn how to clean data and draw plots—and many other things besides. These are the skills that allow data science to happen, and here you will find the best practices for doing each of these things with R. You’ll learn how to use the grammar of graphics, literate programming, and reproducible research to save time. You’ll also learn how to manage cognitive resources to facilitate discoveries when wrangling, visualising, and exploring data.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Data Scientist Handbook" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="<a href="https://dkkim.netlify.com/" class="uri">https://dkkim.netlify.com/</a>" />
+  <meta property="og:image" content="<a href="https://dkkim.netlify.com/" class="uri">https://dkkim.netlify.com/</a>cover.png" />
+  <meta property="og:description" content="This book will teach you how to do data science with R. You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it. In this book, you will find a practicum of skills for data science. Just as a chemist learns how to clean test tubes and stock a lab, you’ll learn how to clean data and draw plots—and many other things besides. These are the skills that allow data science to happen, and here you will find the best practices for doing each of these things with R. You’ll learn how to use the grammar of graphics, literate programming, and reproducible research to save time. You’ll also learn how to manage cognitive resources to facilitate discoveries when wrangling, visualising, and exploring data." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Data Scientist Handbook" />
+  
+  <meta name="twitter:description" content="This book will teach you how to do data science with R. You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it. In this book, you will find a practicum of skills for data science. Just as a chemist learns how to clean test tubes and stock a lab, you’ll learn how to clean data and draw plots—and many other things besides. These are the skills that allow data science to happen, and here you will find the best practices for doing each of these things with R. You’ll learn how to use the grammar of graphics, literate programming, and reproducible research to save time. You’ll also learn how to manage cognitive resources to facilitate discoveries when wrangling, visualising, and exploring data." />
+  <meta name="twitter:image" content="<a href="https://dkkim.netlify.com/" class="uri">https://dkkim.netlify.com/</a>cover.png" />
+
+<meta name="author" content="Dookyung Kim">
+
+
+<meta name="date" content="2018-06-30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="base-r.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Scientist Handbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#rstudio-cheat-sheets"><i class="fa fa-check"></i><b>1.2</b> RStudio Cheat Sheets</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#colophon"><i class="fa fa-check"></i><b>1.3</b> Colophon</a></li>
+</ul></li>
+<li class="part"><span><b>II Data Science via R</b></span></li>
+<li class="chapter" data-level="2" data-path="base-r.html"><a href="base-r.html"><i class="fa fa-check"></i><b>2</b> Base R</a><ul>
+<li class="chapter" data-level="2.1" data-path="base-r.html"><a href="base-r.html#running-r-code"><i class="fa fa-check"></i><b>2.1</b> Running R code</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-import.html"><a href="data-import.html"><i class="fa fa-check"></i><b>3</b> Data Import</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-import.html"><a href="data-import.html#basics"><i class="fa fa-check"></i><b>3.1</b> Basics</a></li>
+<li class="chapter" data-level="3.2" data-path="data-import.html"><a href="data-import.html#write-functions"><i class="fa fa-check"></i><b>3.2</b> Write Functions</a></li>
+<li class="chapter" data-level="3.3" data-path="data-import.html"><a href="data-import.html#read-functions"><i class="fa fa-check"></i><b>3.3</b> Read Functions</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="data-import.html"><a href="data-import.html#read-tabular-data-tibbles"><i class="fa fa-check"></i><b>3.3.1</b> Read tabular data tibbles</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-import.html"><a href="data-import.html#useful-arguments"><i class="fa fa-check"></i><b>3.3.2</b> Useful arguments</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="data-import.html"><a href="data-import.html#fread-for-bigger-datasets"><i class="fa fa-check"></i><b>3.4</b> fread() for bigger datasets</a></li>
+<li class="chapter" data-level="3.5" data-path="data-import.html"><a href="data-import.html#data.frame"><i class="fa fa-check"></i><b>3.5</b> data.frame</a></li>
+<li class="chapter" data-level="3.6" data-path="data-import.html"><a href="data-import.html#three-data-frame-alternatives"><i class="fa fa-check"></i><b>3.6</b> Three data frame alternatives</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="data-import.html"><a href="data-import.html#data.frame-1"><i class="fa fa-check"></i><b>3.6.1</b> data.frame</a></li>
+<li class="chapter" data-level="3.6.2" data-path="data-import.html"><a href="data-import.html#data.table"><i class="fa fa-check"></i><b>3.6.2</b> data.table</a></li>
+<li class="chapter" data-level="3.6.3" data-path="data-import.html"><a href="data-import.html#data_frame"><i class="fa fa-check"></i><b>3.6.3</b> data_frame</a></li>
+<li class="chapter" data-level="3.6.4" data-path="data-import.html"><a href="data-import.html#summary"><i class="fa fa-check"></i><b>3.6.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="data-import.html"><a href="data-import.html#tibble"><i class="fa fa-check"></i><b>3.7</b> tibble</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="data-import.html"><a href="data-import.html#nycflights13"><i class="fa fa-check"></i><b>3.7.1</b> nycflights13</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="data-import.html"><a href="data-import.html#scan-for-small-vectors-and-snippets"><i class="fa fa-check"></i><b>3.8</b> ‘scan()’ for small vectors and snippets</a></li>
+<li class="chapter" data-level="3.9" data-path="data-import.html"><a href="data-import.html#other-types-of-data"><i class="fa fa-check"></i><b>3.9</b> Other types of data</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Scientist Handbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-import" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Data Import</h1>
+<div id="basics" class="section level2">
+<h2><span class="header-section-number">3.1</span> Basics</h2>
+<p>readr, tibble, and tidyr</p>
+<p>R’s tidyverse is built around tidy data stored in tibbles, an enhanced version of a data frame.</p>
+<ul>
+<li>Readr : The front side of this sheet shows how to read text files into R with readr.</li>
+<li>tidyr : The reverse side shows how to create tibbles with tibble and to layout tidy data with tidyr.</li>
+</ul>
+</div>
+<div id="write-functions" class="section level2">
+<h2><span class="header-section-number">3.2</span> Write Functions</h2>
+<p>Save x, an R object, to path, a file path, with:</p>
+<pre><code>These functions share the common arguments:
+write_*(x, path, na=&quot;NA&quot;, append=FALSE, col_names=!append)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-3">Table 3.1: </span>Write functions</caption>
+<thead>
+<tr class="header">
+<th align="left">func</th>
+<th align="left">delim</th>
+<th align="left">arguments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">write_csv</td>
+<td align="left">,</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">write_delim</td>
+<td align="left">any</td>
+<td align="left">delim=“…”</td>
+</tr>
+<tr class="odd">
+<td align="left">write_excel_csv</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">write_file</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">write_lines</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">write_rds</td>
+<td align="left"></td>
+<td align="left">compress=c(“none”,“gz”,“bz2”,“xz”)</td>
+</tr>
+<tr class="odd">
+<td align="left">write_tsv</td>
+<td align="left">tab</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="read-functions" class="section level2">
+<h2><span class="header-section-number">3.3</span> Read Functions</h2>
+<div class="comment_with_line">
+<p>These functions share the common arguments: <br> <strong>read_*</strong>(file, col_names=TRUE, col_types=NULL, locale=default_locale(), na=c(“”,“NA”), quoted_na=TRUE, comment=“”, trim_ws=TRUE, skip=0, n_max=inf, guess_max=min(1000, n_max), progress=interative())</p>
+</div>
+<p><br></p>
+<div id="read-tabular-data-tibbles" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Read tabular data tibbles</h3>
+<div class="grid-container33">
+<div class="grid-item">
+<img id="home" src="myss/matrix10.png">
+</div>
+<div class="grid-item">
+<span class="tcode">read_csv()</span>
+</div>
+<div class="grid-item">
+Reads comma delimited files
+</div>
+<div class="grid-item">
+<img id="home" src="myss/matrix11.png">
+</div>
+<div class="grid-item">
+<span class="tcode">read_csv2()</span>
+</div>
+<div class="grid-item">
+Reads Semi-colon delimited files
+</div>
+<div class="grid-item">
+<img id="home" src="myss/matrix12.png">
+</div>
+<div class="grid-item">
+<span class="tcode">read_delim(delim, quote=“&quot;, escape_backslash=FALSE, escape_double=TRUE)</span>
+</div>
+<div class="grid-item">
+Reads files with any delimeters
+</div>
+<div class="grid-item">
+<img id="home" src="myss/matrix13.png">
+</div>
+<div class="grid-item">
+<span class="tcode">read_fwf(col_positions)</span>
+</div>
+<div class="grid-item">
+Reads fixed width files
+</div>
+<div class="grid-item">
+
+</div>
+<div class="grid-item">
+<span class="tcode">read_tsv()</span>
+</div>
+<div class="grid-item">
+Reads tab delimited files
+</div>
+</div>
+</div>
+<div id="useful-arguments" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Useful arguments</h3>
+<div class="grid-container">
+<div class="grid-item">
+<img id="home" src="myss/matrix14.png" width="30%">
+</div>
+<div class="grid-item">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_csv</span>(<span class="dt">path=</span><span class="st">&#39;file.csv&#39;</span>,
+<span class="dt">x =</span> <span class="kw">read_csv</span>(<span class="st">&quot;a,b,c</span><span class="ch">\n</span><span class="st">1,2,3</span><span class="ch">\n</span><span class="st">4,5,NA&quot;</span>))</code></pre></div>
+</div>
+<div class="grid-item">
+<img id="home" src="myss/matrix15.png" width="30%">
+</div>
+<div class="grid-item">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read_csv</span>(<span class="st">&quot;file.csv&quot;</span>, <span class="dt">col_names=</span><span class="ot">FALSE</span>)</code></pre></div>
+</div>
+<div class="grid-item">
+<img id="home" src="myss/matrix16.png" width="30%">
+</div>
+<div class="grid-item">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read_csv</span>(<span class="st">&quot;file.csv&quot;</span>, <span class="dt">col_names=</span><span class="kw">c</span>(<span class="st">&quot;x&quot;</span>,<span class="st">&quot;y&quot;</span>,<span class="st">&quot;z&quot;</span>))</code></pre></div>
+</div>
+<div class="grid-item">
+<img id="home" src="myss/matrix17.png" width="30%">
+</div>
+<div class="grid-item">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read_csv</span>(<span class="st">&quot;file.csv&quot;</span>, <span class="dt">skip=</span><span class="dv">1</span>)</code></pre></div>
+</div>
+<div class="grid-item">
+<img id="home" src="myss/matrix18.png" width="30%">
+</div>
+<div class="grid-item">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read_csv</span>(<span class="st">&quot;file.csv&quot;</span>, <span class="dt">n_max=</span><span class="dv">1</span>)</code></pre></div>
+</div>
+<div class="grid-item">
+<img id="home" src="myss/matrix19.png" width="30%">
+</div>
+<div class="grid-item">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read_csv</span>(<span class="st">&quot;file.csv&quot;</span>, <span class="dt">na=</span><span class="kw">c</span>(<span class="st">&quot;4&quot;</span>,<span class="st">&quot;5&quot;</span>,<span class="st">&quot;.&quot;</span>))</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div id="fread-for-bigger-datasets" class="section level2">
+<h2><span class="header-section-number">3.4</span> fread() for bigger datasets</h2>
+<ul>
+<li>set working directory</li>
+<li>packages “data.table”</li>
+<li>handles large datasets fast</li>
+<li>easy to use</li>
+<li>improved .CSV importing features
+<ul>
+<li>separator is automatically recognised</li>
+<li>strings are not automaticall convertied to factors | ‘stringsAsFactors=T’</li>
+<li>the header is displayed automaticall</li>
+</ul></li>
+<li>output: ‘data.frame’ (second class: ‘data.frame’) | ‘data.table=F’</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(data.table)
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: &#39;data.table&#39;</span>
+<span class="co">#&gt; The following objects are masked from &#39;package:dplyr&#39;:</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     between, first, last</span>
+<span class="co">#&gt; The following object is masked from &#39;package:purrr&#39;:</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     transpose</span>
+mydata =<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;./data/Bug-Frequency.csv&quot;</span>)
+mydata
+<span class="co">#&gt;          region &lt; 10 g 10 - 20 g 20 - 30 g 30 - 40 g &gt; 40 g</span>
+<span class="co">#&gt; 1:  Welsh Creek      5        34        54        23      8</span>
+<span class="co">#&gt; 2:    River Inn     72        33        28        35      9</span>
+<span class="co">#&gt; 3:  Spur Forest     34        65        23        67      2</span>
+<span class="co">#&gt; 4: Hamock Flats     28        23        34        45     11</span>
+<span class="co">#&gt; 5:   Gelb Rocks     34        68        23        58      9</span></code></pre></div>
+<p><a href="https://en.wikipedia.org/wiki/World_population">World population</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df =<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;1    Singapore  5,612,300   710 7,905</span>
+<span class="st">2    Bangladesh 164,170,000 143,998 1,140</span>
+<span class="st">3    Taiwan 23,562,318  36,190  651</span>
+<span class="st">4    South Korea    51,446,201  99,538  517</span>
+<span class="st">5    Lebanon    6,082,000   10,452  582</span>
+<span class="st">6    Rwanda 11,809,295  26,338  448</span>
+<span class="st">7    Netherlands    17,200,000  41,526  414</span>
+<span class="st">8    Haiti  10,911,819  27,065  403</span>
+<span class="st">9    India  1,329,250,000   3,287,240   404</span>
+<span class="st">10   Israel 8,830,000   22,072  400&quot;</span>,
+<span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&quot;Rank&quot;</span>,   <span class="st">&quot;Country&quot;</span>,<span class="st">&quot;Population&quot;</span>, <span class="st">&quot;Area(km2)&quot;</span>,<span class="st">&quot;Density(Pop. per km2)&quot;</span>
+))
+
+df
+<span class="co">#&gt;     Rank     Country    Population Area(km2) Density(Pop. per km2)</span>
+<span class="co">#&gt;  1:    1   Singapore     5,612,300       710                 7,905</span>
+<span class="co">#&gt;  2:    2  Bangladesh   164,170,000   143,998                 1,140</span>
+<span class="co">#&gt;  3:    3      Taiwan    23,562,318    36,190                   651</span>
+<span class="co">#&gt;  4:    4 South Korea    51,446,201    99,538                   517</span>
+<span class="co">#&gt;  5:    5     Lebanon     6,082,000    10,452                   582</span>
+<span class="co">#&gt;  6:    6      Rwanda    11,809,295    26,338                   448</span>
+<span class="co">#&gt;  7:    7 Netherlands    17,200,000    41,526                   414</span>
+<span class="co">#&gt;  8:    8       Haiti    10,911,819    27,065                   403</span>
+<span class="co">#&gt;  9:    9       India 1,329,250,000 3,287,240                   404</span>
+<span class="co">#&gt; 10:   10      Israel     8,830,000    22,072                   400</span></code></pre></div>
+</div>
+<div id="data.frame" class="section level2">
+<h2><span class="header-section-number">3.5</span> data.frame</h2>
+<ul>
+<li>the mainly used object type</li>
+<li>straightforward sttucture
+<ul>
+<li>one row for each observation</li>
+<li>one column for each variable</li>
+</ul></li>
+<li>R offers different data frame classes
+<ul>
+<li>similar to R’s data visualization systems:
+<ul>
+<li>‘R-base’</li>
+<li>‘lattice’</li>
+<li>‘ggplot2’</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="three-data-frame-alternatives" class="section level2">
+<h2><span class="header-section-number">3.6</span> Three data frame alternatives</h2>
+<ul>
+<li>‘data.frame()’ function in ‘R-base’</li>
+<li>‘data.table()’ function in the package ‘data.table’</li>
+<li>‘data_frame()’ function in the package ‘dplyr’</li>
+</ul>
+<p>each of them is suitabl for storing most data - Let’s see their specialities</p>
+<div id="data.frame-1" class="section level3">
+<h3><span class="header-section-number">3.6.1</span> data.frame</h3>
+<ul>
+<li>no external package needed</li>
+<li>straightforward for simple tasks</li>
+<li>strings are stored as factors per default</li>
+<li>data recycling</li>
+<li>row names can be provided</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf =<span class="st"> </span><span class="kw">data.frame</span>(
+    <span class="dt">a =</span> <span class="kw">c</span>(<span class="st">&quot;Paul&quot;</span>, <span class="st">&quot;Kim&quot;</span>,<span class="st">&quot;Nora&quot;</span>,<span class="st">&quot;Sue&quot;</span>,<span class="st">&quot;Paul&quot;</span>,<span class="st">&quot;Kim&quot;</span>),
+    <span class="dt">b =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>),
+    <span class="dt">c =</span> <span class="kw">rnorm</span>(<span class="dv">2</span>)
+)
+mydf
+<span class="co">#&gt;      a b      c</span>
+<span class="co">#&gt; 1 Paul A -1.400</span>
+<span class="co">#&gt; 2  Kim B  0.255</span>
+<span class="co">#&gt; 3 Nora C -1.400</span>
+<span class="co">#&gt; 4  Sue B  0.255</span>
+<span class="co">#&gt; 5 Paul B -1.400</span>
+<span class="co">#&gt; 6  Kim C  0.255</span>
+
+<span class="kw">sapply</span>(mydf, class)
+<span class="co">#&gt;         a         b         c </span>
+<span class="co">#&gt;  &quot;factor&quot;  &quot;factor&quot; &quot;numeric&quot;</span></code></pre></div>
+</div>
+<div id="data.table" class="section level3">
+<h3><span class="header-section-number">3.6.2</span> data.table</h3>
+<ul>
+<li>quick and easy to code</li>
+<li>start processing time</li>
+<li>great documentation</li>
+<li>second class ‘data.frame’</li>
+<li><p>‘data.table’ struction is similar to SQL structure</p>
+<ul>
+<li>‘nameDT [i, j, by]’
+<ul>
+<li>‘i’ stands for the subset from our ‘data.table’ we want to work with</li>
+<li>‘j’ is the actual calculation that will be performed in the data subset ‘i’</li>
+<li>the whole calculation is grouped by ’by</li>
+</ul></li>
+</ul></li>
+<li>strings are not automatically transfromed to factors</li>
+<li>no custom row names, just row IDs</li>
+<li><p>if a dataset is too big to be processed, then only the first and last five rows are printed</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(data.table)
+mytable =<span class="st"> </span><span class="kw">data.frame</span>(
+    <span class="dt">a =</span> <span class="kw">c</span>(<span class="st">&quot;Paul&quot;</span>, <span class="st">&quot;Kim&quot;</span>,<span class="st">&quot;Nora&quot;</span>,<span class="st">&quot;Sue&quot;</span>,<span class="st">&quot;Paul&quot;</span>,<span class="st">&quot;Kim&quot;</span>),
+    <span class="dt">b =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>),
+    <span class="dt">c =</span> <span class="kw">rnorm</span>(<span class="dv">2</span>)
+)
+mytable
+<span class="co">#&gt;      a b        c</span>
+<span class="co">#&gt; 1 Paul A -2.43726</span>
+<span class="co">#&gt; 2  Kim B -0.00557</span>
+<span class="co">#&gt; 3 Nora C -2.43726</span>
+<span class="co">#&gt; 4  Sue B -0.00557</span>
+<span class="co">#&gt; 5 Paul B -2.43726</span>
+<span class="co">#&gt; 6  Kim C -0.00557</span></code></pre></div>
+</div>
+<div id="data_frame" class="section level3">
+<h3><span class="header-section-number">3.6.3</span> data_frame</h3>
+<ul>
+<li>requires equals column length</li>
+<li>only columns of length 1 will be recycled</li>
+<li>only the firs couple of rows are displayed in case of large datasets</li>
+<li>second class: ‘data.frame’</li>
+<li>stirngs are not automatically transformed to factors</li>
+<li>no custom row names, just row IDs</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+my_df =<span class="st"> </span><span class="kw">data.frame</span>(
+    <span class="dt">a =</span> <span class="kw">c</span>(<span class="st">&quot;Paul&quot;</span>, <span class="st">&quot;Kim&quot;</span>,<span class="st">&quot;Nora&quot;</span>,<span class="st">&quot;Sue&quot;</span>,<span class="st">&quot;Paul&quot;</span>,<span class="st">&quot;Kim&quot;</span>),
+    <span class="dt">b =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>),
+    <span class="dt">c =</span> <span class="kw">rnorm</span>(<span class="dv">6</span>)
+)
+my_df
+<span class="co">#&gt;      a b      c</span>
+<span class="co">#&gt; 1 Paul A  0.622</span>
+<span class="co">#&gt; 2  Kim B  1.148</span>
+<span class="co">#&gt; 3 Nora C -1.822</span>
+<span class="co">#&gt; 4  Sue B -0.247</span>
+<span class="co">#&gt; 5 Paul B -0.244</span>
+<span class="co">#&gt; 6  Kim C -0.283</span></code></pre></div>
+</div>
+<div id="summary" class="section level3">
+<h3><span class="header-section-number">3.6.4</span> Summary</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(mydf); <span class="kw">class</span>(mytable); <span class="kw">class</span>(my_df)
+<span class="co">#&gt; [1] &quot;data.frame&quot;</span>
+<span class="co">#&gt; [1] &quot;data.frame&quot;</span>
+<span class="co">#&gt; [1] &quot;data.frame&quot;</span></code></pre></div>
+<ul>
+<li>it is benefically to use advanced tools for extended data management</li>
+<li>‘data.table’ and ‘data_frame’ have the standard ‘data.frame’ as second class</li>
+</ul>
+</div>
+</div>
+<div id="tibble" class="section level2">
+<h2><span class="header-section-number">3.7</span> tibble</h2>
+<div id="nycflights13" class="section level3">
+<h3><span class="header-section-number">3.7.1</span> nycflights13</h3>
+<p>To explore the basic data manipulation verbs of dplyr, we’ll use <code>nycflights13::flights</code>. This data frame contains all 336,776 flights that departed from New York City in 2013. The data comes from the US <a href="http://www.transtats.bts.gov/DatabaseInfo.asp?DB_ID=120&amp;Link=0">Bureau of Transportation Statistics</a>, and is documented in <code>?flights</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(nycflights13)
+flights
+<span class="co">#&gt; # A tibble: 336,776 x 19</span>
+<span class="co">#&gt;    year month   day dep_time sched_dep_time dep_delay arr_time</span>
+<span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;</span>
+<span class="co">#&gt; 1  2013     1     1      517            515        2.      830</span>
+<span class="co">#&gt; 2  2013     1     1      533            529        4.      850</span>
+<span class="co">#&gt; 3  2013     1     1      542            540        2.      923</span>
+<span class="co">#&gt; 4  2013     1     1      544            545       -1.     1004</span>
+<span class="co">#&gt; 5  2013     1     1      554            600       -6.      812</span>
+<span class="co">#&gt; 6  2013     1     1      554            558       -4.      740</span>
+<span class="co">#&gt; # ... with 3.368e+05 more rows, and 12 more variables:</span>
+<span class="co">#&gt; #   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,</span>
+<span class="co">#&gt; #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</span></code></pre></div>
+<blockquote>
+<p>You might notice that this data frame prints a little differently from other data frames you might have used in the past: it only shows the first few rows and all the columns that fit on one screen. (To see the whole dataset, you can run <code>View(flights)</code> which will open the dataset in the RStudio viewer). It prints differently because it’s a <strong>tibble</strong>. Tibbles are data frames, but slightly tweaked to work better in the tidyverse. For now, you don’t need to worry about the differences; we’ll come back to tibbles in more detail in <a href="#wrangle-intro">wrangle</a>.</p>
+</blockquote>
+<blockquote>
+<p>You might also have noticed the row of three (or four) letter abbreviations under the column names. These describe the type of each variable:</p>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>int</code> stands for integers.</li>
+<li><code>dbl</code> stands for doubles, or real numbers.</li>
+<li><code>chr</code> stands for character vectors, or strings.</li>
+<li><code>dttm</code> stands for date-times (a date + a time).</li>
+<li><code>lgl</code> stands for logical, vectors that contain only <code>TRUE</code> or <code>FALSE</code>.</li>
+<li><code>fctr</code> stands for factors, which R uses to represent categorical variables with fixed possible values.</li>
+<li><code>date</code> stands for dates.</li>
+</ul>
+</blockquote>
+</div>
+</div>
+<div id="scan-for-small-vectors-and-snippets" class="section level2">
+<h2><span class="header-section-number">3.8</span> ‘scan()’ for small vectors and snippets</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">numbers =<span class="st"> </span><span class="kw">scan</span>()
+<span class="co"># characters = scan(what= &quot;character&quot;)</span></code></pre></div>
+</div>
+<div id="other-types-of-data" class="section level2">
+<h2><span class="header-section-number">3.9</span> Other types of data</h2>
+<p>Try one of the following packages to import other types of files.</p>
+<ul>
+<li>haven : SPSS, Stata, and SAS files</li>
+<li>readxl : excel files (.xls and .xlsx)</li>
+<li>DBI : databases</li>
+<li>jsonlite : json</li>
+<li>xml2 : XML</li>
+<li>httr : Web APIs</li>
+<li>rvest : HTML(Web Scraping)</li>
+</ul>
+<p>packages ‘foreing’ to get help : ?foreign</p>
+<p>?Hmisc</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="base-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

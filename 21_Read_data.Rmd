@@ -1,0 +1,330 @@
+```{r include=FALSE, cache=FALSE}
+set.seed(1014)
+options(digits = 3)
+
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  cache = FALSE,
+  out.width = "90%",
+  fig.align = 'center',
+  fig.width = 6,
+  fig.asp = 0.618,  # 1 / phi
+  fig.show = "hold"
+)
+
+options(dplyr.print_min = 6, dplyr.print_max = 6)
+
+```
+# Data Import
+
+
+## Basics
+
+readr, tibble, and tidyr
+
+R's tidyverse is built around tidy data stored in tibbles, an enhanced version of a data frame.
+
+* Readr : The front side of this sheet shows how to read text files into R with readr.
+* tidyr : The reverse side shows how to create tibbles with tibble and to layout tidy data with tidyr.
+
+
+## Write Functions
+
+Save x, an R object, to path, a file path, with:
+
+```
+These functions share the common arguments:
+write_*(x, path, na="NA", append=FALSE, col_names=!append)
+```
+
+```{R echo=FALSE, message=FALSE, results='asis'}
+library(tidyverse)
+df <- tribble(
+    ~func, ~delim, ~arguments,
+    "write_csv", ",", "",
+    "write_delim", "any", 'delim="..."',
+    "write_excel_csv", "", "",
+    "write_file", "", "",
+    "write_lines","","",
+    "write_rds","",'compress=c("none","gz","bz2","xz")',
+    "write_tsv","tab",""
+    )
+
+knitr::kable(df, caption="Write functions")
+```
+
+## Read Functions
+
+<div class="comment_with_line">
+These functions share the common arguments: <br>
+<strong>read_*</strong>(file, col_names=TRUE, col_types=NULL, locale=default_locale(),
+na=c("","NA"), quoted_na=TRUE, comment="", trim_ws=TRUE, skip=0, 
+n_max=inf, guess_max=min(1000, n_max), progress=interative())
+</div>
+
+<br>
+
+### Read tabular data tibbles
+
+<div class="grid-container33">
+<div class="grid-item"><img id="home" src="myss/matrix10.png"></div>
+<div class="grid-item"><span class="tcode">read_csv()</span></div>
+<div class="grid-item">Reads comma delimited files</div>
+<div class="grid-item"><img id="home" src="myss/matrix11.png"></div>
+<div class="grid-item"><span class="tcode">read_csv2()</span></div>
+<div class="grid-item">Reads Semi-colon delimited files</div>
+<div class="grid-item"><img id="home" src="myss/matrix12.png"></div>
+<div class="grid-item"><span class="tcode">read_delim(delim, quote="\", escape_backslash=FALSE, escape_double=TRUE)</span></div>
+<div class="grid-item">Reads files with any delimeters</div>
+<div class="grid-item"><img id="home" src="myss/matrix13.png"></div>
+<div class="grid-item"><span class="tcode">read_fwf(col_positions)</span></div>
+<div class="grid-item">Reads fixed width files</div>
+<div class="grid-item"></div>
+<div class="grid-item"><span class="tcode">read_tsv()</span></div>
+<div class="grid-item">Reads tab delimited files</div>
+</div>
+
+### Useful arguments
+
+<div class="grid-container">
+<div class="grid-item"><img id="home" src="myss/matrix14.png" width="30%"></div>
+<div class="grid-item">
+```{R}
+write_csv(path='file.csv',
+x = read_csv("a,b,c\n1,2,3\n4,5,NA"))
+```
+</div>
+
+<div class="grid-item"><img id="home" src="myss/matrix15.png" width="30%"></div>
+<div class="grid-item">
+```{R eval=FALSE}
+read_csv("file.csv", col_names=FALSE)
+```
+</div>
+
+<div class="grid-item"><img id="home" src="myss/matrix16.png" width="30%"></div>
+<div class="grid-item">
+```{R eval=FALSE}
+read_csv("file.csv", col_names=c("x","y","z"))
+```
+</div>
+
+<div class="grid-item"><img id="home" src="myss/matrix17.png" width="30%"></div>
+<div class="grid-item">
+```{R eval=FALSE}
+read_csv("file.csv", skip=1)
+```
+</div>
+
+<div class="grid-item"><img id="home" src="myss/matrix18.png" width="30%"></div>
+<div class="grid-item">
+```{R eval=FALSE}
+read_csv("file.csv", n_max=1)
+```
+</div>
+
+<div class="grid-item"><img id="home" src="myss/matrix19.png" width="30%"></div>
+<div class="grid-item">
+```{R eval=FALSE}
+read_csv("file.csv", na=c("4","5","."))
+```
+</div>
+
+</div>
+
+
+
+
+## fread() for bigger datasets
+- set working directory
+- packages "data.table"
+- handles large datasets fast
+- easy to use
+- improved .CSV importing features
+    * separator is automatically recognised
+    * strings are not automaticall convertied to factors | 'stringsAsFactors=T'
+    * the header is displayed automaticall
+- output: 'data.frame' (second class: 'data.frame') | 'data.table=F'
+
+
+```{r}
+library(data.table)
+mydata = fread("./data/Bug-Frequency.csv")
+mydata
+```
+
+[World population](https://en.wikipedia.org/wiki/World_population)
+
+
+```{r}
+df = fread("1	 Singapore	5,612,300	710	7,905
+2	 Bangladesh	164,170,000	143,998	1,140
+3	 Taiwan	23,562,318	36,190	651
+4	 South Korea	51,446,201	99,538	517
+5	 Lebanon	6,082,000	10,452	582
+6	 Rwanda	11,809,295	26,338	448
+7	 Netherlands	17,200,000	41,526	414
+8	 Haiti	10,911,819	27,065	403
+9	 India	1,329,250,000	3,287,240	404
+10	 Israel	8,830,000	22,072	400",
+col.names = c("Rank",	"Country","Population",	"Area(km2)","Density(Pop. per km2)"
+))
+
+df
+```
+
+
+
+## data.frame
+
+- the mainly used object type
+- straightforward sttucture
+    * one row for each observation
+    * one column for each variable
+- R offers different data frame classes
+    * similar to R's data visualization systems:
+        - 'R-base'
+        - 'lattice'
+        -  'ggplot2'
+
+## Three data frame alternatives
+- 'data.frame()' function in 'R-base'
+- 'data.table()' function in the package 'data.table'
+- 'data_frame()' function in the package 'dplyr'
+
+each of them is suitabl for storing most data - Let's see their specialities
+
+
+### data.frame
+
+- no external package needed
+- straightforward for simple tasks
+- strings are stored as factors per default
+- data recycling
+- row names can be provided
+
+```{r}
+mydf = data.frame(
+    a = c("Paul", "Kim","Nora","Sue","Paul","Kim"),
+    b = c("A", "B","C","B","B","C"),
+    c = rnorm(2)
+)
+mydf
+
+sapply(mydf, class)
+```
+
+
+### data.table
+
+- quick and easy to code
+- start processing time
+- great documentation
+- second class 'data.frame'
+- 'data.table' struction is similar to SQL structure
+
+    * 'nameDT [i, j, by]'
+        - 'i' stands for the subset from our 'data.table' we want to work with
+        - 'j' is the actual calculation that will be performed in the data subset 'i'
+        - the whole calculation is grouped by 'by
+
+- strings are not automatically transfromed to factors
+- no custom row names, just row IDs
+- if a dataset is too big to be processed, then only the first and last five rows are printed
+
+```{r}
+library(data.table)
+mytable = data.frame(
+    a = c("Paul", "Kim","Nora","Sue","Paul","Kim"),
+    b = c("A", "B","C","B","B","C"),
+    c = rnorm(2)
+)
+mytable
+
+```
+
+### data_frame
+
+- requires equals column length
+- only columns of length 1 will be recycled
+- only the firs couple of rows are displayed in case of large datasets
+- second class: 'data.frame'
+- stirngs are not automatically transformed to factors
+- no custom row names, just row IDs
+
+```{r}
+library(dplyr)
+my_df = data.frame(
+    a = c("Paul", "Kim","Nora","Sue","Paul","Kim"),
+    b = c("A", "B","C","B","B","C"),
+    c = rnorm(6)
+)
+my_df
+
+```
+
+### Summary
+
+```{r}
+class(mydf); class(mytable); class(my_df)
+```
+
+- it is benefically to use advanced tools for extended data management
+- 'data.table' and 'data_frame' have the standard 'data.frame' as second class 
+
+
+
+
+
+## tibble
+
+### nycflights13
+
+To explore the basic data manipulation verbs of dplyr, we'll use `nycflights13::flights`. This data frame contains all `r format(nrow(nycflights13::flights), big.mark = ",")` flights that departed from New York City in 2013. The data comes from the US [Bureau of Transportation Statistics](http://www.transtats.bts.gov/DatabaseInfo.asp?DB_ID=120&Link=0), and is documented in `?flights`.
+
+```{r}
+library(nycflights13)
+flights
+```
+
+
+
+> You might notice that this data frame prints a little differently from other data frames you might have used in the past: it only shows the first few rows and all the columns that fit on one screen. (To see the whole dataset, you can run `View(flights)` which will open the dataset in the RStudio viewer). It prints differently because it's a __tibble__. Tibbles are data frames, but slightly tweaked to work better in the tidyverse. For now, you don't need to worry about the differences; we'll come back to tibbles in more detail in [wrangle](#wrangle-intro).
+ 
+> You might also have noticed the row of three (or four) letter abbreviations under the column names. These describe the type of each variable:
+
+> * `int` stands for integers.
+> * `dbl` stands for doubles, or real numbers.
+> * `chr` stands for character vectors, or strings.
+> * `dttm` stands for date-times (a date + a time).
+> * `lgl` stands for logical, vectors that contain only `TRUE` or `FALSE`.
+> * `fctr` stands for factors, which R uses to represent categorical variables with fixed possible values.
+> * `date` stands for dates.
+
+
+
+## 'scan()' for small vectors and snippets 
+
+```{r}
+numbers = scan()
+# characters = scan(what= "character")
+```
+
+
+## Other types of data
+
+Try one of the following packages to import other types of files.
+
+* haven : SPSS, Stata, and SAS files
+* readxl : excel files (.xls and .xlsx)
+* DBI : databases
+* jsonlite : json
+* xml2 : XML
+* httr : Web APIs
+* rvest : HTML(Web Scraping)
+
+packages 'foreing'
+to get help : ?foreign
+
+?Hmisc

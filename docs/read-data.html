@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Data Scientist Handbook</title>
+  <meta name="description" content="This book will teach you how to do data science with R. You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it. In this book, you will find a practicum of skills for data science. Just as a chemist learns how to clean test tubes and stock a lab, you’ll learn how to clean data and draw plots—and many other things besides. These are the skills that allow data science to happen, and here you will find the best practices for doing each of these things with R. You’ll learn how to use the grammar of graphics, literate programming, and reproducible research to save time. You’ll also learn how to manage cognitive resources to facilitate discoveries when wrangling, visualising, and exploring data.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Data Scientist Handbook" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="<a href="https://dkkim.netlify.com/" class="uri">https://dkkim.netlify.com/</a>" />
+  <meta property="og:image" content="<a href="https://dkkim.netlify.com/" class="uri">https://dkkim.netlify.com/</a>cover.png" />
+  <meta property="og:description" content="This book will teach you how to do data science with R. You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it. In this book, you will find a practicum of skills for data science. Just as a chemist learns how to clean test tubes and stock a lab, you’ll learn how to clean data and draw plots—and many other things besides. These are the skills that allow data science to happen, and here you will find the best practices for doing each of these things with R. You’ll learn how to use the grammar of graphics, literate programming, and reproducible research to save time. You’ll also learn how to manage cognitive resources to facilitate discoveries when wrangling, visualising, and exploring data." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Data Scientist Handbook" />
+  
+  <meta name="twitter:description" content="This book will teach you how to do data science with R. You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it. In this book, you will find a practicum of skills for data science. Just as a chemist learns how to clean test tubes and stock a lab, you’ll learn how to clean data and draw plots—and many other things besides. These are the skills that allow data science to happen, and here you will find the best practices for doing each of these things with R. You’ll learn how to use the grammar of graphics, literate programming, and reproducible research to save time. You’ll also learn how to manage cognitive resources to facilitate discoveries when wrangling, visualising, and exploring data." />
+  <meta name="twitter:image" content="<a href="https://dkkim.netlify.com/" class="uri">https://dkkim.netlify.com/</a>cover.png" />
+
+<meta name="author" content="Dookyung Kim">
+
+
+<meta name="date" content="2018-03-24">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="base-r.html">
+<link rel="next" href="readr.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Scientist Handbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#colophon"><i class="fa fa-check"></i><b>1.2</b> Colophon</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="section-2.html"><a href="section-2.html"><i class="fa fa-check"></i><b>2</b> 데이터사이언스</a><ul>
+<li class="chapter" data-level="2.1" data-path="section-2.html"><a href="section-2.html#tidyverse"><i class="fa fa-check"></i><b>2.1</b> Tidyverse</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-scientist-tools.html"><a href="data-scientist-tools.html"><i class="fa fa-check"></i><b>3</b> Data Scientist Tools</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-scientist-tools.html"><a href="data-scientist-tools.html#r"><i class="fa fa-check"></i><b>3.1</b> R</a></li>
+<li class="chapter" data-level="3.2" data-path="data-scientist-tools.html"><a href="data-scientist-tools.html#python"><i class="fa fa-check"></i><b>3.2</b> Python</a></li>
+<li class="chapter" data-level="3.3" data-path="data-scientist-tools.html"><a href="data-scientist-tools.html#matlab"><i class="fa fa-check"></i><b>3.3</b> Matlab</a></li>
+<li class="chapter" data-level="3.4" data-path="data-scientist-tools.html"><a href="data-scientist-tools.html#sas"><i class="fa fa-check"></i><b>3.4</b> SAS</a></li>
+<li class="chapter" data-level="3.5" data-path="data-scientist-tools.html"><a href="data-scientist-tools.html#what-you-wont-learn"><i class="fa fa-check"></i><b>3.5</b> What you won’t learn</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="data-scientist-tools.html"><a href="data-scientist-tools.html#big-data"><i class="fa fa-check"></i><b>3.5.1</b> Big data</a></li>
+<li class="chapter" data-level="3.5.2" data-path="data-scientist-tools.html"><a href="data-scientist-tools.html#hypothesis-confirmation"><i class="fa fa-check"></i><b>3.5.2</b> Hypothesis confirmation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="why-r.html"><a href="why-r.html"><i class="fa fa-check"></i><b>4</b> Why R</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="why-r.html"><a href="why-r.html#python-julia-and-friends"><i class="fa fa-check"></i><b>4.0.1</b> Python, Julia, and friends</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="how-to-study-new-way-of-data-science.html"><a href="how-to-study-new-way-of-data-science.html"><i class="fa fa-check"></i><b>5</b> how to study (new way of Data Science)</a></li>
+<li class="chapter" data-level="6" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html"><i class="fa fa-check"></i><b>6</b> Tidyverse &amp; Bigdata</a><ul>
+<li class="chapter" data-level="6.1" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#base-r-minimum"><i class="fa fa-check"></i><b>6.1</b> Base R (minimum)</a></li>
+<li class="chapter" data-level="6.2" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#tidyverse-1"><i class="fa fa-check"></i><b>6.2</b> Tidyverse</a></li>
+<li class="chapter" data-level="6.3" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#functional-programming"><i class="fa fa-check"></i><b>6.3</b> Functional Programming</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#big-data-1"><i class="fa fa-check"></i><b>6.3.1</b> Big data</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#highperformance-r"><i class="fa fa-check"></i><b>6.4</b> HighPerformance R</a></li>
+<li class="chapter" data-level="6.5" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#reproducible-research"><i class="fa fa-check"></i><b>6.5</b> Reproducible Research</a></li>
+<li class="chapter" data-level="6.6" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#applications"><i class="fa fa-check"></i><b>6.6</b> Applications</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#non-rectangular-data"><i class="fa fa-check"></i><b>6.6.1</b> Non-rectangular data</a></li>
+<li class="chapter" data-level="6.6.2" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#api"><i class="fa fa-check"></i><b>6.6.2</b> API</a></li>
+<li class="chapter" data-level="6.6.3" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#-python----"><i class="fa fa-check"></i><b>6.6.3</b> 크롤링 (python 포함) - 연동</a></li>
+<li class="chapter" data-level="6.6.4" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#-reading"><i class="fa fa-check"></i><b>6.6.4</b> 데이터 reading</a></li>
+<li class="chapter" data-level="6.6.5" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#-"><i class="fa fa-check"></i><b>6.6.5</b> 데이터 정제</a></li>
+<li class="chapter" data-level="6.6.6" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#visualization"><i class="fa fa-check"></i><b>6.6.6</b> visualization</a></li>
+<li class="chapter" data-level="6.6.7" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#modeling"><i class="fa fa-check"></i><b>6.6.7</b> modeling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="this-book-.html"><a href="this-book-.html"><i class="fa fa-check"></i><b>7</b> This book 구성</a><ul>
+<li class="chapter" data-level="7.1" data-path="this-book-.html"><a href="this-book-.html#how-this-book-is-organised"><i class="fa fa-check"></i><b>7.1</b> How this book is organised</a></li>
+<li class="chapter" data-level="7.2" data-path="this-book-.html"><a href="this-book-.html#what-you-wont-learn-1"><i class="fa fa-check"></i><b>7.2</b> What you won’t learn</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i><b>8</b> Prerequisites</a><ul>
+<li class="chapter" data-level="8.1" data-path="prerequisites.html"><a href="prerequisites.html#a-few-assumptions"><i class="fa fa-check"></i><b>8.1</b> a few assumptions</a></li>
+<li class="chapter" data-level="8.2" data-path="prerequisites.html"><a href="prerequisites.html#four-things-you-need-to-run-the-code-in-this-book"><i class="fa fa-check"></i><b>8.2</b> four things you need to run the code in this book</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="prerequisites.html"><a href="prerequisites.html#r-1"><i class="fa fa-check"></i><b>8.2.1</b> R</a></li>
+<li class="chapter" data-level="8.2.2" data-path="prerequisites.html"><a href="prerequisites.html#rstudio"><i class="fa fa-check"></i><b>8.2.2</b> RStudio</a></li>
+<li class="chapter" data-level="8.2.3" data-path="prerequisites.html"><a href="prerequisites.html#the-tidyverse"><i class="fa fa-check"></i><b>8.2.3</b> The tidyverse</a></li>
+<li class="chapter" data-level="8.2.4" data-path="prerequisites.html"><a href="prerequisites.html#other-packages"><i class="fa fa-check"></i><b>8.2.4</b> Other packages</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Data Science via R</b></span></li>
+<li class="chapter" data-level="9" data-path="base-r.html"><a href="base-r.html"><i class="fa fa-check"></i><b>9</b> Base R</a><ul>
+<li class="chapter" data-level="9.1" data-path="base-r.html"><a href="base-r.html#running-r-code"><i class="fa fa-check"></i><b>9.1</b> Running R code</a></li>
+<li class="chapter" data-level="9.2" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#-"><i class="fa fa-check"></i><b>9.2</b> 데이터 타입</a></li>
+<li class="chapter" data-level="9.3" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#-"><i class="fa fa-check"></i><b>9.3</b> 데이터분석연구회 발표자료</a></li>
+<li class="chapter" data-level="9.4" data-path="base-r.html"><a href="base-r.html#cheatsheet"><i class="fa fa-check"></i><b>9.4</b> CheatSheet</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#-"><i class="fa fa-check"></i><b>9.4.1</b> 도움말 보기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="read-data.html"><a href="read-data.html"><i class="fa fa-check"></i><b>10</b> read data</a><ul>
+<li class="chapter" data-level="10.1" data-path="read-data.html"><a href="read-data.html#import-dataset-feature-in-rstudio"><i class="fa fa-check"></i><b>10.1</b> ‘import Dataset’ feature in RStudio</a></li>
+<li class="chapter" data-level="10.2" data-path="read-data.html"><a href="read-data.html#scan-for-small-vectors-and-snippets"><i class="fa fa-check"></i><b>10.2</b> ‘scan()’ for small vectors and snippets</a></li>
+<li class="chapter" data-level="10.3" data-path="read-data.html"><a href="read-data.html#fread-for-bigger-datasets"><i class="fa fa-check"></i><b>10.3</b> fread() for bigger datasets</a></li>
+<li class="chapter" data-level="10.4" data-path="read-data.html"><a href="read-data.html#others"><i class="fa fa-check"></i><b>10.4</b> Others</a></li>
+<li class="chapter" data-level="10.5" data-path="read-data.html"><a href="read-data.html#data.frame"><i class="fa fa-check"></i><b>10.5</b> data.frame</a></li>
+<li class="chapter" data-level="10.6" data-path="read-data.html"><a href="read-data.html#three-data-frame-alternatives"><i class="fa fa-check"></i><b>10.6</b> Three data frame alternatives</a><ul>
+<li class="chapter" data-level="10.6.1" data-path="read-data.html"><a href="read-data.html#data.frame-1"><i class="fa fa-check"></i><b>10.6.1</b> data.frame</a></li>
+<li class="chapter" data-level="10.6.2" data-path="read-data.html"><a href="read-data.html#data.table"><i class="fa fa-check"></i><b>10.6.2</b> data.table</a></li>
+<li class="chapter" data-level="10.6.3" data-path="read-data.html"><a href="read-data.html#data_frame"><i class="fa fa-check"></i><b>10.6.3</b> data_frame</a></li>
+<li class="chapter" data-level="10.6.4" data-path="read-data.html"><a href="read-data.html#summary"><i class="fa fa-check"></i><b>10.6.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="read-data.html"><a href="read-data.html#tibble"><i class="fa fa-check"></i><b>10.7</b> tibble</a><ul>
+<li class="chapter" data-level="10.7.1" data-path="read-data.html"><a href="read-data.html#nycflights13"><i class="fa fa-check"></i><b>10.7.1</b> nycflights13</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="readr.html"><a href="readr.html"><i class="fa fa-check"></i><b>11</b> readr</a><ul>
+<li class="chapter" data-level="11.1" data-path="readr.html"><a href="readr.html#overview"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
+<li class="chapter" data-level="11.2" data-path="readr.html"><a href="readr.html#installation"><i class="fa fa-check"></i><b>11.2</b> Installation</a></li>
+<li class="chapter" data-level="11.3" data-path="readr.html"><a href="readr.html#usage"><i class="fa fa-check"></i><b>11.3</b> Usage</a></li>
+<li class="chapter" data-level="11.4" data-path="readr.html"><a href="readr.html#alternatives"><i class="fa fa-check"></i><b>11.4</b> Alternatives</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="readr.html"><a href="readr.html#base-r-1"><i class="fa fa-check"></i><b>11.4.1</b> Base R</a></li>
+<li class="chapter" data-level="11.4.2" data-path="readr.html"><a href="readr.html#data.table-and-fread"><i class="fa fa-check"></i><b>11.4.2</b> data.table and <code>fread()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="readr.html"><a href="readr.html#acknowledgements"><i class="fa fa-check"></i><b>11.5</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>12</b> Basics</a><ul>
+<li class="chapter" data-level="12.1" data-path="basics.html"><a href="basics.html#coding-basics"><i class="fa fa-check"></i><b>12.1</b> Coding basics</a></li>
+<li class="chapter" data-level="12.2" data-path="basics.html"><a href="basics.html#whats-in-a-name"><i class="fa fa-check"></i><b>12.2</b> What’s in a name?</a></li>
+<li class="chapter" data-level="12.3" data-path="basics.html"><a href="basics.html#calling-functions"><i class="fa fa-check"></i><b>12.3</b> Calling functions</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="transform.html"><a href="transform.html"><i class="fa fa-check"></i><b>13</b> Data transformation</a><ul>
+<li class="chapter" data-level="13.1" data-path="transform.html"><a href="transform.html#introduction-1"><i class="fa fa-check"></i><b>13.1</b> Introduction</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="transform.html"><a href="transform.html#prerequisites-1"><i class="fa fa-check"></i><b>13.1.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="13.1.2" data-path="transform.html"><a href="transform.html#dplyr-basics"><i class="fa fa-check"></i><b>13.1.2</b> dplyr basics</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="transform.html"><a href="transform.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>13.2</b> Filter rows with <code>filter()</code></a><ul>
+<li class="chapter" data-level="13.2.1" data-path="transform.html"><a href="transform.html#comparisons"><i class="fa fa-check"></i><b>13.2.1</b> Comparisons</a></li>
+<li class="chapter" data-level="13.2.2" data-path="transform.html"><a href="transform.html#logical-operators"><i class="fa fa-check"></i><b>13.2.2</b> Logical operators</a></li>
+<li class="chapter" data-level="13.2.3" data-path="transform.html"><a href="transform.html#missing-values"><i class="fa fa-check"></i><b>13.2.3</b> Missing values</a></li>
+<li class="chapter" data-level="13.2.4" data-path="transform.html"><a href="transform.html#exercises"><i class="fa fa-check"></i><b>13.2.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="transform.html"><a href="transform.html#arrange-rows-with-arrange"><i class="fa fa-check"></i><b>13.3</b> Arrange rows with <code>arrange()</code></a><ul>
+<li class="chapter" data-level="13.3.1" data-path="transform.html"><a href="transform.html#exercises-1"><i class="fa fa-check"></i><b>13.3.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="transform.html"><a href="transform.html#select"><i class="fa fa-check"></i><b>13.4</b> Select columns with <code>select()</code></a><ul>
+<li class="chapter" data-level="13.4.1" data-path="transform.html"><a href="transform.html#exercises-2"><i class="fa fa-check"></i><b>13.4.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="transform.html"><a href="transform.html#add-new-variables-with-mutate"><i class="fa fa-check"></i><b>13.5</b> Add new variables with <code>mutate()</code></a><ul>
+<li class="chapter" data-level="13.5.1" data-path="transform.html"><a href="transform.html#mutate-funs"><i class="fa fa-check"></i><b>13.5.1</b> Useful creation functions</a></li>
+<li class="chapter" data-level="13.5.2" data-path="transform.html"><a href="transform.html#exercises-3"><i class="fa fa-check"></i><b>13.5.2</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="transform.html"><a href="transform.html#grouped-summaries-with-summarise"><i class="fa fa-check"></i><b>13.6</b> Grouped summaries with <code>summarise()</code></a><ul>
+<li class="chapter" data-level="13.6.1" data-path="transform.html"><a href="transform.html#combining-multiple-operations-with-the-pipe"><i class="fa fa-check"></i><b>13.6.1</b> Combining multiple operations with the pipe</a></li>
+<li class="chapter" data-level="13.6.2" data-path="transform.html"><a href="transform.html#missing-values-1"><i class="fa fa-check"></i><b>13.6.2</b> Missing values</a></li>
+<li class="chapter" data-level="13.6.3" data-path="transform.html"><a href="transform.html#counts"><i class="fa fa-check"></i><b>13.6.3</b> Counts</a></li>
+<li class="chapter" data-level="13.6.4" data-path="transform.html"><a href="transform.html#summarise-funs"><i class="fa fa-check"></i><b>13.6.4</b> Useful summary functions</a></li>
+<li class="chapter" data-level="13.6.5" data-path="transform.html"><a href="transform.html#grouping-by-multiple-variables"><i class="fa fa-check"></i><b>13.6.5</b> Grouping by multiple variables</a></li>
+<li class="chapter" data-level="13.6.6" data-path="transform.html"><a href="transform.html#ungrouping"><i class="fa fa-check"></i><b>13.6.6</b> Ungrouping</a></li>
+<li class="chapter" data-level="13.6.7" data-path="transform.html"><a href="transform.html#exercises-4"><i class="fa fa-check"></i><b>13.6.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="transform.html"><a href="transform.html#grouped-mutates-and-filters"><i class="fa fa-check"></i><b>13.7</b> Grouped mutates (and filters)</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="transform.html"><a href="transform.html#exercises-5"><i class="fa fa-check"></i><b>13.7.1</b> Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Data Science via the tidyverse</b></span></li>
+<li class="chapter" data-level="14" data-path="tidyverse-2.html"><a href="tidyverse-2.html"><i class="fa fa-check"></i><b>14</b> Tidyverse</a><ul>
+<li class="chapter" data-level="14.1" data-path="tidyverse-2.html"><a href="tidyverse-2.html#import-data-into-r"><i class="fa fa-check"></i><b>14.1</b> import data into R</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="functional-programming-1.html"><a href="functional-programming-1.html"><i class="fa fa-check"></i><b>15</b> Functional Programming</a></li>
+<li class="chapter" data-level="16" data-path="high-computing.html"><a href="high-computing.html"><i class="fa fa-check"></i><b>16</b> High Computing</a></li>
+<li class="part"><span><b>IV Reproducible Research with R</b></span></li>
+<li class="chapter" data-level="17" data-path="report-publication.html"><a href="report-publication.html"><i class="fa fa-check"></i><b>17</b> Report &amp; Publication</a><ul>
+<li class="chapter" data-level="17.1" data-path="report-publication.html"><a href="report-publication.html#rmarkdown"><i class="fa fa-check"></i><b>17.1</b> Rmarkdown</a></li>
+<li class="chapter" data-level="17.2" data-path="report-publication.html"><a href="report-publication.html#shiny"><i class="fa fa-check"></i><b>17.2</b> Shiny</a></li>
+<li class="chapter" data-level="17.3" data-path="report-publication.html"><a href="report-publication.html#web-site"><i class="fa fa-check"></i><b>17.3</b> Web Site</a></li>
+<li class="chapter" data-level="17.4" data-path="report-publication.html"><a href="report-publication.html#plumber"><i class="fa fa-check"></i><b>17.4</b> Plumber</a></li>
+<li class="chapter" data-level="17.5" data-path="report-publication.html"><a href="report-publication.html#excel-dashboard"><i class="fa fa-check"></i><b>17.5</b> Excel Dashboard</a></li>
+<li class="chapter" data-level="17.6" data-path="report-publication.html"><a href="report-publication.html#section"><i class="fa fa-check"></i><b>17.6</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#applications"><i class="fa fa-check"></i><b>18</b> Application</a><ul>
+<li class="chapter" data-level="18.1" data-path="tidyverse-bigdata.html"><a href="tidyverse-bigdata.html#-"><i class="fa fa-check"></i><b>18.1</b> 데이터 수집</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>18.1.1</b> API</a></li>
+<li class="chapter" data-level="18.1.2" data-path="applications.html"><a href="applications.html#-python-"><i class="fa fa-check"></i><b>18.1.2</b> 크롤링 (python 포함)</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="applications.html"><a href="applications.html#-reading-1"><i class="fa fa-check"></i><b>18.2</b> 데이터 reading</a></li>
+<li class="chapter" data-level="18.3" data-path="applications.html"><a href="applications.html#--1"><i class="fa fa-check"></i><b>18.3</b> 데이터 정제</a></li>
+<li class="chapter" data-level="18.4" data-path="applications.html"><a href="applications.html#visualization-1"><i class="fa fa-check"></i><b>18.4</b> visualization</a></li>
+<li class="chapter" data-level="18.5" data-path="applications.html"><a href="applications.html#modeling-1"><i class="fa fa-check"></i><b>18.5</b> modeling</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="-a.html"><a href="-a.html"><i class="fa fa-check"></i><b>A</b> 칼만필터링 A</a></li>
+<li class="chapter" data-level="B" data-path="rstudio-.html"><a href="rstudio-.html"><i class="fa fa-check"></i><b>B</b> rstudio 기능</a></li>
+<li class="chapter" data-level="C" data-path="frequantly-asked-questions.html"><a href="frequantly-asked-questions.html"><i class="fa fa-check"></i><b>C</b> Frequantly Asked Questions</a><ul>
+<li class="chapter" data-level="C.1" data-path="frequantly-asked-questions.html"><a href="frequantly-asked-questions.html#getting-help-and-learning-more"><i class="fa fa-check"></i><b>C.1</b> Getting help and learning more</a><ul>
+<li class="chapter" data-level="C.1.1" data-path="frequantly-asked-questions.html"><a href="frequantly-asked-questions.html#google"><i class="fa fa-check"></i><b>C.1.1</b> Google</a></li>
+<li class="chapter" data-level="C.1.2" data-path="frequantly-asked-questions.html"><a href="frequantly-asked-questions.html#stackoverflow"><i class="fa fa-check"></i><b>C.1.2</b> Stackoverflow</a></li>
+<li class="chapter" data-level="C.1.3" data-path="frequantly-asked-questions.html"><a href="frequantly-asked-questions.html#follow-rstudio"><i class="fa fa-check"></i><b>C.1.3</b> follow RStudio</a></li>
+<li class="chapter" data-level="C.1.4" data-path="frequantly-asked-questions.html"><a href="frequantly-asked-questions.html#r-bloggers"><i class="fa fa-check"></i><b>C.1.4</b> r-bloggers</a></li>
+</ul></li>
+<li class="chapter" data-level="C.2" data-path="frequantly-asked-questions.html"><a href="frequantly-asked-questions.html#how-to-make-your-example-reproducible"><i class="fa fa-check"></i><b>C.2</b> How to make your example reproducible</a></li>
+<li class="chapter" data-level="C.3" data-path="frequantly-asked-questions.html"><a href="frequantly-asked-questions.html#how-to-install-packages-updatae"><i class="fa fa-check"></i><b>C.3</b> How to install packages &amp; Updatae</a><ul>
+<li class="chapter" data-level="C.3.1" data-path="frequantly-asked-questions.html"><a href="frequantly-asked-questions.html#online"><i class="fa fa-check"></i><b>C.3.1</b> online</a></li>
+<li class="chapter" data-level="C.3.2" data-path="frequantly-asked-questions.html"><a href="frequantly-asked-questions.html#offline"><i class="fa fa-check"></i><b>C.3.2</b> offline</a></li>
+</ul></li>
+<li class="chapter" data-level="C.4" data-path="frequantly-asked-questions.html"><a href="frequantly-asked-questions.html#how-to-load-library"><i class="fa fa-check"></i><b>C.4</b> How to load library</a><ul>
+<li class="chapter" data-level="C.4.1" data-path="frequantly-asked-questions.html"><a href="frequantly-asked-questions.html#library-vs-require"><i class="fa fa-check"></i><b>C.4.1</b> library vs require</a></li>
+</ul></li>
+<li class="chapter" data-level="C.5" data-path="frequantly-asked-questions.html"><a href="frequantly-asked-questions.html#where-my-library-installed"><i class="fa fa-check"></i><b>C.5</b> Where my library installed</a></li>
+<li class="chapter" data-level="C.6" data-path="frequantly-asked-questions.html"><a href="frequantly-asked-questions.html#java-"><i class="fa fa-check"></i><b>C.6</b> Java 설치</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="etc.html"><a href="etc.html"><i class="fa fa-check"></i><b>D</b> ETC</a><ul>
+<li class="chapter" data-level="D.1" data-path="etc.html"><a href="etc.html#hypothesis-confirmation-1"><i class="fa fa-check"></i><b>D.1</b> 1.3.4 Hypothesis confirmation</a></li>
+<li class="chapter" data-level="D.2" data-path="etc.html"><a href="etc.html#tidyverse-conflict-message"><i class="fa fa-check"></i><b>D.2</b> tidyverse conflict message</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Scientist Handbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="read-data" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> read data</h1>
+<div id="import-dataset-feature-in-rstudio" class="section level2">
+<h2><span class="header-section-number">10.1</span> ‘import Dataset’ feature in RStudio</h2>
+</div>
+<div id="scan-for-small-vectors-and-snippets" class="section level2">
+<h2><span class="header-section-number">10.2</span> ‘scan()’ for small vectors and snippets</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">numbers =<span class="st"> </span><span class="kw">scan</span>()
+characters =<span class="st"> </span><span class="kw">scan</span>(<span class="dt">what=</span> <span class="st">&quot;character&quot;</span>)</code></pre></div>
+</div>
+<div id="fread-for-bigger-datasets" class="section level2">
+<h2><span class="header-section-number">10.3</span> fread() for bigger datasets</h2>
+<ul>
+<li>set working directory</li>
+<li>packages “data.table”</li>
+<li>handles large datasets fast</li>
+<li>easy to use</li>
+<li>improved .CSV importing features
+<ul>
+<li>separator is automatically recognised</li>
+<li>strings are not automaticall convertied to factors | ‘stringsAsFactors=T’</li>
+<li>the header is displayed automaticall</li>
+</ul></li>
+<li>output: ‘data.frame’ (second class: ‘data.frame’) | ‘data.table=F’</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(data.table)
+mydata =<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;./data/Bug-Frequency.csv&quot;</span>)
+mydata
+<span class="co">#&gt;          region &lt; 10 g 10 - 20 g 20 - 30 g 30 - 40 g &gt; 40 g</span>
+<span class="co">#&gt; 1:  Welsh Creek      5        34        54        23      8</span>
+<span class="co">#&gt; 2:    River Inn     72        33        28        35      9</span>
+<span class="co">#&gt; 3:  Spur Forest     34        65        23        67      2</span>
+<span class="co">#&gt; 4: Hamock Flats     28        23        34        45     11</span>
+<span class="co">#&gt; 5:   Gelb Rocks     34        68        23        58      9</span></code></pre></div>
+<p><a href="https://en.wikipedia.org/wiki/World_population">World population</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df =<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;1    Singapore  5,612,300   710 7,905</span>
+<span class="st">2    Bangladesh 164,170,000 143,998 1,140</span>
+<span class="st">3    Taiwan 23,562,318  36,190  651</span>
+<span class="st">4    South Korea    51,446,201  99,538  517</span>
+<span class="st">5    Lebanon    6,082,000   10,452  582</span>
+<span class="st">6    Rwanda 11,809,295  26,338  448</span>
+<span class="st">7    Netherlands    17,200,000  41,526  414</span>
+<span class="st">8    Haiti  10,911,819  27,065  403</span>
+<span class="st">9    India  1,329,250,000   3,287,240   404</span>
+<span class="st">10   Israel 8,830,000   22,072  400&quot;</span>,
+<span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&quot;Rank&quot;</span>,   <span class="st">&quot;Country&quot;</span>,<span class="st">&quot;Population&quot;</span>, <span class="st">&quot;Area(km2)&quot;</span>,<span class="st">&quot;Density(Pop. per km2)&quot;</span>
+))
+
+df
+<span class="co">#&gt;     Rank     Country    Population Area(km2) Density(Pop. per km2)</span>
+<span class="co">#&gt;  1:    1   Singapore     5,612,300       710                 7,905</span>
+<span class="co">#&gt;  2:    2  Bangladesh   164,170,000   143,998                 1,140</span>
+<span class="co">#&gt;  3:    3      Taiwan    23,562,318    36,190                   651</span>
+<span class="co">#&gt;  4:    4 South Korea    51,446,201    99,538                   517</span>
+<span class="co">#&gt;  5:    5     Lebanon     6,082,000    10,452                   582</span>
+<span class="co">#&gt;  6:    6      Rwanda    11,809,295    26,338                   448</span>
+<span class="co">#&gt;  7:    7 Netherlands    17,200,000    41,526                   414</span>
+<span class="co">#&gt;  8:    8       Haiti    10,911,819    27,065                   403</span>
+<span class="co">#&gt;  9:    9       India 1,329,250,000 3,287,240                   404</span>
+<span class="co">#&gt; 10:   10      Israel     8,830,000    22,072                   400</span></code></pre></div>
+</div>
+<div id="others" class="section level2">
+<h2><span class="header-section-number">10.4</span> Others</h2>
+<p>packages ‘foreing’ to get help : ?foreign</p>
+<p>?Hmisc</p>
+</div>
+<div id="data.frame" class="section level2">
+<h2><span class="header-section-number">10.5</span> data.frame</h2>
+<ul>
+<li>the mainly used object type</li>
+<li>straightforward sttucture
+<ul>
+<li>one row for each observation</li>
+<li>one column for each variable</li>
+</ul></li>
+<li>R offers different data frame classes
+<ul>
+<li>similar to R’s data visualization systems:
+<ul>
+<li>‘R-base’</li>
+<li>‘lattice’</li>
+<li>‘ggplot2’</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="three-data-frame-alternatives" class="section level2">
+<h2><span class="header-section-number">10.6</span> Three data frame alternatives</h2>
+<ul>
+<li>‘data.frame()’ function in ‘R-base’</li>
+<li>‘data.table()’ function in the package ‘data.table’</li>
+<li>‘data_frame()’ function in the package ‘dplyr’</li>
+</ul>
+<p>each of them is suitabl for storing most data - Let’s see their specialities</p>
+<div id="data.frame-1" class="section level3">
+<h3><span class="header-section-number">10.6.1</span> data.frame</h3>
+<ul>
+<li>no external package needed</li>
+<li>straightforward for simple tasks</li>
+<li>strings are stored as factors per default</li>
+<li>data recycling</li>
+<li>row names can be provided</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mydf =<span class="st"> </span><span class="kw">data.frame</span>(
+    <span class="dt">a =</span> <span class="kw">c</span>(<span class="st">&quot;Paul&quot;</span>, <span class="st">&quot;Kim&quot;</span>,<span class="st">&quot;Nora&quot;</span>,<span class="st">&quot;Sue&quot;</span>,<span class="st">&quot;Paul&quot;</span>,<span class="st">&quot;Kim&quot;</span>),
+    <span class="dt">b =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>),
+    <span class="dt">c =</span> <span class="kw">rnorm</span>(<span class="dv">2</span>)
+)
+mydf
+<span class="co">#&gt;      a b      c</span>
+<span class="co">#&gt; 1 Paul A -1.400</span>
+<span class="co">#&gt; 2  Kim B  0.255</span>
+<span class="co">#&gt; 3 Nora C -1.400</span>
+<span class="co">#&gt; 4  Sue B  0.255</span>
+<span class="co">#&gt; 5 Paul B -1.400</span>
+<span class="co">#&gt; 6  Kim C  0.255</span>
+
+<span class="kw">sapply</span>(mydf, class)
+<span class="co">#&gt;         a         b         c </span>
+<span class="co">#&gt;  &quot;factor&quot;  &quot;factor&quot; &quot;numeric&quot;</span></code></pre></div>
+</div>
+<div id="data.table" class="section level3">
+<h3><span class="header-section-number">10.6.2</span> data.table</h3>
+<ul>
+<li>quick and easy to code</li>
+<li>start processing time</li>
+<li>great documentation</li>
+<li>second class ‘data.frame’</li>
+<li><p>‘data.table’ struction is similar to SQL structure</p>
+<ul>
+<li>‘nameDT [i, j, by]’
+<ul>
+<li>‘i’ stands for the subset from our ‘data.table’ we want to work with</li>
+<li>‘j’ is the actual calculation that will be performed in the data subset ‘i’</li>
+<li>the whole calculation is grouped by ’by</li>
+</ul></li>
+</ul></li>
+<li>strings are not automatically transfromed to factors</li>
+<li>no custom row names, just row IDs</li>
+<li><p>if a dataset is too big to be processed, then only the first and last five rows are printed</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(data.table)
+mytable =<span class="st"> </span><span class="kw">data.frame</span>(
+    <span class="dt">a =</span> <span class="kw">c</span>(<span class="st">&quot;Paul&quot;</span>, <span class="st">&quot;Kim&quot;</span>,<span class="st">&quot;Nora&quot;</span>,<span class="st">&quot;Sue&quot;</span>,<span class="st">&quot;Paul&quot;</span>,<span class="st">&quot;Kim&quot;</span>),
+    <span class="dt">b =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>),
+    <span class="dt">c =</span> <span class="kw">rnorm</span>(<span class="dv">2</span>)
+)
+mytable
+<span class="co">#&gt;      a b        c</span>
+<span class="co">#&gt; 1 Paul A -2.43726</span>
+<span class="co">#&gt; 2  Kim B -0.00557</span>
+<span class="co">#&gt; 3 Nora C -2.43726</span>
+<span class="co">#&gt; 4  Sue B -0.00557</span>
+<span class="co">#&gt; 5 Paul B -2.43726</span>
+<span class="co">#&gt; 6  Kim C -0.00557</span></code></pre></div>
+</div>
+<div id="data_frame" class="section level3">
+<h3><span class="header-section-number">10.6.3</span> data_frame</h3>
+<ul>
+<li>requires equals column length</li>
+<li>only columns of length 1 will be recycled</li>
+<li>only the firs couple of rows are displayed in case of large datasets</li>
+<li>second class: ‘data.frame’</li>
+<li>stirngs are not automatically transformed to factors</li>
+<li>no custom row names, just row IDs</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: &#39;dplyr&#39;</span>
+<span class="co">#&gt; The following objects are masked from &#39;package:data.table&#39;:</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     between, first, last</span>
+<span class="co">#&gt; The following objects are masked from &#39;package:stats&#39;:</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     filter, lag</span>
+<span class="co">#&gt; The following objects are masked from &#39;package:base&#39;:</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     intersect, setdiff, setequal, union</span>
+my_df =<span class="st"> </span><span class="kw">data.frame</span>(
+    <span class="dt">a =</span> <span class="kw">c</span>(<span class="st">&quot;Paul&quot;</span>, <span class="st">&quot;Kim&quot;</span>,<span class="st">&quot;Nora&quot;</span>,<span class="st">&quot;Sue&quot;</span>,<span class="st">&quot;Paul&quot;</span>,<span class="st">&quot;Kim&quot;</span>),
+    <span class="dt">b =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>),
+    <span class="dt">c =</span> <span class="kw">rnorm</span>(<span class="dv">6</span>)
+)
+my_df
+<span class="co">#&gt;      a b      c</span>
+<span class="co">#&gt; 1 Paul A  0.622</span>
+<span class="co">#&gt; 2  Kim B  1.148</span>
+<span class="co">#&gt; 3 Nora C -1.822</span>
+<span class="co">#&gt; 4  Sue B -0.247</span>
+<span class="co">#&gt; 5 Paul B -0.244</span>
+<span class="co">#&gt; 6  Kim C -0.283</span></code></pre></div>
+</div>
+<div id="summary" class="section level3">
+<h3><span class="header-section-number">10.6.4</span> Summary</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(mydf); <span class="kw">class</span>(mytable); <span class="kw">class</span>(my_df)
+<span class="co">#&gt; [1] &quot;data.frame&quot;</span>
+<span class="co">#&gt; [1] &quot;data.frame&quot;</span>
+<span class="co">#&gt; [1] &quot;data.frame&quot;</span></code></pre></div>
+<ul>
+<li>it is benefically to use advanced tools for extended data management</li>
+<li>‘data.table’ and ‘data_frame’ have the standard ‘data.frame’ as second class</li>
+</ul>
+</div>
+</div>
+<div id="tibble" class="section level2">
+<h2><span class="header-section-number">10.7</span> tibble</h2>
+<div id="nycflights13" class="section level3">
+<h3><span class="header-section-number">10.7.1</span> nycflights13</h3>
+<p>To explore the basic data manipulation verbs of dplyr, we’ll use <code>nycflights13::flights</code>. This data frame contains all 336,776 flights that departed from New York City in 2013. The data comes from the US <a href="http://www.transtats.bts.gov/DatabaseInfo.asp?DB_ID=120&amp;Link=0">Bureau of Transportation Statistics</a>, and is documented in <code>?flights</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(nycflights13)
+flights
+<span class="co">#&gt; # A tibble: 336,776 x 19</span>
+<span class="co">#&gt;    year month   day dep_time sched_dep_time dep_delay arr_time</span>
+<span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;</span>
+<span class="co">#&gt; 1  2013     1     1      517            515        2.      830</span>
+<span class="co">#&gt; 2  2013     1     1      533            529        4.      850</span>
+<span class="co">#&gt; 3  2013     1     1      542            540        2.      923</span>
+<span class="co">#&gt; 4  2013     1     1      544            545       -1.     1004</span>
+<span class="co">#&gt; 5  2013     1     1      554            600       -6.      812</span>
+<span class="co">#&gt; 6  2013     1     1      554            558       -4.      740</span>
+<span class="co">#&gt; # ... with 3.368e+05 more rows, and 12 more variables:</span>
+<span class="co">#&gt; #   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,</span>
+<span class="co">#&gt; #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</span></code></pre></div>
+<blockquote>
+<p>You might notice that this data frame prints a little differently from other data frames you might have used in the past: it only shows the first few rows and all the columns that fit on one screen. (To see the whole dataset, you can run <code>View(flights)</code> which will open the dataset in the RStudio viewer). It prints differently because it’s a <strong>tibble</strong>. Tibbles are data frames, but slightly tweaked to work better in the tidyverse. For now, you don’t need to worry about the differences; we’ll come back to tibbles in more detail in <a href="#wrangle-intro">wrangle</a>.</p>
+</blockquote>
+<blockquote>
+<p>You might also have noticed the row of three (or four) letter abbreviations under the column names. These describe the type of each variable:</p>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>int</code> stands for integers.</li>
+<li><code>dbl</code> stands for doubles, or real numbers.</li>
+<li><code>chr</code> stands for character vectors, or strings.</li>
+<li><code>dttm</code> stands for date-times (a date + a time).</li>
+<li><code>lgl</code> stands for logical, vectors that contain only <code>TRUE</code> or <code>FALSE</code>.</li>
+<li><code>fctr</code> stands for factors, which R uses to represent categorical variables with fixed possible values.</li>
+<li><code>date</code> stands for dates.</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="base-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="readr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

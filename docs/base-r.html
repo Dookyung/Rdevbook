@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Data Scientist Handbook</title>
+  <meta name="description" content="This book will teach you how to do data science with R. You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it. In this book, you will find a practicum of skills for data science. Just as a chemist learns how to clean test tubes and stock a lab, you’ll learn how to clean data and draw plots—and many other things besides. These are the skills that allow data science to happen, and here you will find the best practices for doing each of these things with R. You’ll learn how to use the grammar of graphics, literate programming, and reproducible research to save time. You’ll also learn how to manage cognitive resources to facilitate discoveries when wrangling, visualising, and exploring data.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Data Scientist Handbook" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="<a href="https://dkkim.netlify.com/" class="uri">https://dkkim.netlify.com/</a>" />
+  <meta property="og:image" content="<a href="https://dkkim.netlify.com/" class="uri">https://dkkim.netlify.com/</a>cover.png" />
+  <meta property="og:description" content="This book will teach you how to do data science with R. You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it. In this book, you will find a practicum of skills for data science. Just as a chemist learns how to clean test tubes and stock a lab, you’ll learn how to clean data and draw plots—and many other things besides. These are the skills that allow data science to happen, and here you will find the best practices for doing each of these things with R. You’ll learn how to use the grammar of graphics, literate programming, and reproducible research to save time. You’ll also learn how to manage cognitive resources to facilitate discoveries when wrangling, visualising, and exploring data." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Data Scientist Handbook" />
+  
+  <meta name="twitter:description" content="This book will teach you how to do data science with R. You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it. In this book, you will find a practicum of skills for data science. Just as a chemist learns how to clean test tubes and stock a lab, you’ll learn how to clean data and draw plots—and many other things besides. These are the skills that allow data science to happen, and here you will find the best practices for doing each of these things with R. You’ll learn how to use the grammar of graphics, literate programming, and reproducible research to save time. You’ll also learn how to manage cognitive resources to facilitate discoveries when wrangling, visualising, and exploring data." />
+  <meta name="twitter:image" content="<a href="https://dkkim.netlify.com/" class="uri">https://dkkim.netlify.com/</a>cover.png" />
+
+<meta name="author" content="Dookyung Kim">
+
+
+<meta name="date" content="2018-06-30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="introduction.html">
+<link rel="next" href="data-import.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Scientist Handbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#rstudio-cheat-sheets"><i class="fa fa-check"></i><b>1.2</b> RStudio Cheat Sheets</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#colophon"><i class="fa fa-check"></i><b>1.3</b> Colophon</a></li>
+</ul></li>
+<li class="part"><span><b>II Data Science via R</b></span></li>
+<li class="chapter" data-level="2" data-path="base-r.html"><a href="base-r.html"><i class="fa fa-check"></i><b>2</b> Base R</a><ul>
+<li class="chapter" data-level="2.1" data-path="base-r.html"><a href="base-r.html#running-r-code"><i class="fa fa-check"></i><b>2.1</b> Running R code</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-import.html"><a href="data-import.html"><i class="fa fa-check"></i><b>3</b> Data Import</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-import.html"><a href="data-import.html#basics"><i class="fa fa-check"></i><b>3.1</b> Basics</a></li>
+<li class="chapter" data-level="3.2" data-path="data-import.html"><a href="data-import.html#write-functions"><i class="fa fa-check"></i><b>3.2</b> Write Functions</a></li>
+<li class="chapter" data-level="3.3" data-path="data-import.html"><a href="data-import.html#read-functions"><i class="fa fa-check"></i><b>3.3</b> Read Functions</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="data-import.html"><a href="data-import.html#read-tabular-data-tibbles"><i class="fa fa-check"></i><b>3.3.1</b> Read tabular data tibbles</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-import.html"><a href="data-import.html#useful-arguments"><i class="fa fa-check"></i><b>3.3.2</b> Useful arguments</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="data-import.html"><a href="data-import.html#fread-for-bigger-datasets"><i class="fa fa-check"></i><b>3.4</b> fread() for bigger datasets</a></li>
+<li class="chapter" data-level="3.5" data-path="data-import.html"><a href="data-import.html#data.frame"><i class="fa fa-check"></i><b>3.5</b> data.frame</a></li>
+<li class="chapter" data-level="3.6" data-path="data-import.html"><a href="data-import.html#three-data-frame-alternatives"><i class="fa fa-check"></i><b>3.6</b> Three data frame alternatives</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="data-import.html"><a href="data-import.html#data.frame-1"><i class="fa fa-check"></i><b>3.6.1</b> data.frame</a></li>
+<li class="chapter" data-level="3.6.2" data-path="data-import.html"><a href="data-import.html#data.table"><i class="fa fa-check"></i><b>3.6.2</b> data.table</a></li>
+<li class="chapter" data-level="3.6.3" data-path="data-import.html"><a href="data-import.html#data_frame"><i class="fa fa-check"></i><b>3.6.3</b> data_frame</a></li>
+<li class="chapter" data-level="3.6.4" data-path="data-import.html"><a href="data-import.html#summary"><i class="fa fa-check"></i><b>3.6.4</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="data-import.html"><a href="data-import.html#tibble"><i class="fa fa-check"></i><b>3.7</b> tibble</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="data-import.html"><a href="data-import.html#nycflights13"><i class="fa fa-check"></i><b>3.7.1</b> nycflights13</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="data-import.html"><a href="data-import.html#scan-for-small-vectors-and-snippets"><i class="fa fa-check"></i><b>3.8</b> ‘scan()’ for small vectors and snippets</a></li>
+<li class="chapter" data-level="3.9" data-path="data-import.html"><a href="data-import.html#other-types-of-data"><i class="fa fa-check"></i><b>3.9</b> Other types of data</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Scientist Handbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="base-r" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Base R</h1>
+<div id="running-r-code" class="section level2">
+<h2><span class="header-section-number">2.1</span> Running R code</h2>
+<!-- 도움말 -->
+<div class="comment">
+<div class="boxx" style="font-size: 25px;">
+<strong>도움말 Getting Help</strong>
+</div>
+<div class="boxx2">
+도움말 보기
+</div>
+<div class="grid-container">
+<div class="grid-item">
+<span class="tcode">?mean</span>
+</div>
+<div class="grid-item">
+“특정함수”에 대한 도움말 보기
+</div>
+<div class="grid-item">
+<span class="tcode">help.search(‘weighted mean’)</span>
+</div>
+<div class="grid-item">
+“특정 용어”에 대한 도움말 검색
+</div>
+<div class="grid-item">
+<span class="tcode">help(package = ‘dplyr’)</span>
+</div>
+<div class="grid-item">
+“특정 패키지”에 대한 도움말 보기
+</div>
+</div>
+<div class="boxx2">
+객체에 대한 정보 보기
+</div>
+<div class="grid-container">
+<div class="grid-item">
+<span class="tcode">str(iris)</span>
+</div>
+<div class="grid-item">
+객체 구조에 대한 요약정보 보기
+</div>
+<div class="grid-item">
+<span class="tcode">class(iris)</span>
+</div>
+<div class="grid-item">
+객체의 class 조회
+</div>
+</div>
+</div>
+<!-- Using Package -->
+<div class="comment">
+<div class="boxx" style="font-size: 25px;">
+<strong>패키지 Using Packages</strong>
+</div>
+<div class="grid-container">
+<div class="grid-item">
+<span class="tcode">install.packages(‘dplyr’)</span>
+</div>
+<div class="grid-item">
+Download and install a package from CRAN.
+</div>
+<div class="grid-item">
+<span class="tcode">library(‘dplyr’)</span>
+</div>
+<div class="grid-item">
+Load the package, making all its functions available to use.
+</div>
+<div class="grid-item">
+<span class="tcode">dplyr::select</span>
+</div>
+<div class="grid-item">
+Use a particular function from a package
+</div>
+<div class="grid-item">
+<span class="tcode">data(iris)</span>
+</div>
+<div class="grid-item">
+Load a built-in dataset into the environment.
+</div>
+</div>
+</div>
+<!-- Working Directory -->
+<div class="comment">
+<div class="boxx" style="font-size: 25px;">
+<strong>워킹디렉토리 Working Directory</strong>
+</div>
+<div class="grid-container">
+<div class="grid-item">
+<span class="tcode">getwd()</span>
+</div>
+<div class="grid-item">
+Find the current working directory.
+</div>
+<div class="grid-item">
+<span class="tcode">setwd(‘D://file/path’)</span>
+</div>
+<div class="grid-item">
+Change the current working directory.
+</div>
+</div>
+<div class="grid-container1">
+<div class="grid-item">
+<strong>Use Projects in RStudio to set the working directory to the folder you are working in.</strong>
+</div>
+</div>
+</div>
+<!-- Vector -->
+<div class="comment_line">
+<div class="boxx" style="font-size: 25px;">
+<strong>Vectors</strong>
+</div>
+<div class="boxx2">
+Creating Vectors
+</div>
+<div class="grid-container1">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)              <span class="co"># Join elements into a vector </span>
+<span class="co">#&gt; [1] 2 4 6</span>
+<span class="dv">2</span><span class="op">:</span><span class="dv">6</span>                     <span class="co"># An interger sequence</span>
+<span class="co">#&gt; [1] 2 3 4 5 6</span>
+<span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dt">by=</span><span class="fl">0.5</span>)       <span class="co"># A complex sequence</span>
+<span class="co">#&gt; [1] 2.0 2.5 3.0</span>
+<span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">times=</span><span class="dv">3</span>)       <span class="co"># Repeat a vector</span>
+<span class="co">#&gt; [1] 1 2 1 2 1 2</span>
+<span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">each=</span><span class="dv">3</span>)        <span class="co"># Repeat elements of a vector</span>
+<span class="co">#&gt; [1] 1 1 1 2 2 2</span></code></pre></div>
+</div>
+<div class="boxx2">
+Vector Functions
+</div>
+<div class="grid-container1">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">2</span>)
+<span class="kw">sort</span>(x)
+<span class="co">#&gt; [1] 1 2 2 3 6 6</span>
+<span class="kw">rev</span>(x)
+<span class="co">#&gt; [1] 2 6 1 6 2 3</span>
+<span class="kw">table</span>(x)
+<span class="co">#&gt; x</span>
+<span class="co">#&gt; 1 2 3 6 </span>
+<span class="co">#&gt; 1 2 1 2</span>
+<span class="kw">unique</span>(x)
+<span class="co">#&gt; [1] 3 2 6 1</span></code></pre></div>
+</div>
+<div class="boxx2">
+Selecting Vector Elements
+</div>
+<div class="grid-container1">
+<div class="grid-item">
+<strong>By Position</strong>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">2</span>)
+x[<span class="dv">4</span>]
+<span class="co">#&gt; [1] 1</span>
+x[<span class="op">-</span><span class="dv">4</span>]
+<span class="co">#&gt; [1] 3 2 6 6 2</span>
+x[<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>]
+<span class="co">#&gt; [1] 2 6 1</span>
+x[<span class="op">-</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>)]
+<span class="co">#&gt; [1] 3 6 2</span>
+x[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>)]
+<span class="co">#&gt; [1] 3 6</span></code></pre></div>
+<div class="grid-item">
+<strong>By Value</strong>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">2</span>)
+x[x<span class="op">==</span><span class="dv">6</span>]
+<span class="co">#&gt; [1] 6 6</span>
+x[x<span class="op">&lt;</span><span class="dv">3</span>]
+<span class="co">#&gt; [1] 2 1 2</span>
+x[x <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">6</span>)]
+<span class="co">#&gt; [1] 2 6 6 2</span></code></pre></div>
+<div class="grid-item">
+<strong>Named Vectors</strong>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[<span class="st">&#39;apple&#39;</span>]</code></pre></div>
+</div>
+</div>
+<!-- Programming -->
+<div class="comment_line">
+<div class="boxx" style="font-size: 25px;">
+<strong>프로그래밍 Programming</strong>
+</div>
+<div class="boxx2">
+For Loop
+</div>
+<div class="grid-container1">
+<pre><code>for (variable in sequance){
+    Do something
+}</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>){
+    j &lt;-<span class="st"> </span>i <span class="op">+</span><span class="st"> </span><span class="dv">10</span>
+    <span class="kw">print</span>(j)
+}
+<span class="co">#&gt; [1] 11</span>
+<span class="co">#&gt; [1] 12</span>
+<span class="co">#&gt; [1] 13</span>
+<span class="co">#&gt; [1] 14</span></code></pre></div>
+</div>
+<div class="boxx2">
+While Loop
+</div>
+<div class="grid-container1">
+<pre><code>while (condition){
+    Do something
+}</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">while</span> (i <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>){
+    <span class="kw">print</span>(i)
+    i &lt;-<span class="st"> </span>i <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
+}
+<span class="co">#&gt; [1] 4</span></code></pre></div>
+</div>
+<div class="boxx2">
+If Statements
+</div>
+<div class="grid-container1">
+<pre><code>if (condition){
+    Do something
+} else {
+    Do something different
+}</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">i =<span class="st"> </span><span class="dv">5</span>
+
+<span class="cf">if</span> (i <span class="op">&gt;</span><span class="st"> </span><span class="dv">3</span>){
+    <span class="kw">print</span>(<span class="st">&#39;Yes&#39;</span>)
+} <span class="cf">else</span> {
+    <span class="kw">print</span>(<span class="st">&#39;No&#39;</span>)
+}
+<span class="co">#&gt; [1] &quot;Yes&quot;</span></code></pre></div>
+</div>
+<div class="boxx2">
+Functions
+</div>
+<div class="grid-container1">
+<pre><code>function_name &lt;- function(var){
+    Do something
+    return(new_variable)
+}</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">square &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+    squared &lt;-<span class="st"> </span>x <span class="op">*</span><span class="st"> </span>x
+    <span class="kw">return</span>(squared)
+}
+
+<span class="kw">square</span>(<span class="dv">5</span>)
+<span class="co">#&gt; [1] 25</span></code></pre></div>
+</div>
+<div class="boxx2">
+Condtions
+</div>
+<div class="grid-container4">
+<div class="grid-item">
+a == b
+</div>
+<div class="grid-item">
+a != b
+</div>
+<div class="grid-item">
+a &gt; b
+</div>
+<div class="grid-item">
+a &lt; b
+</div>
+<div class="grid-item">
+a &gt;= b
+</div>
+<div class="grid-item">
+a &lt;= b
+</div>
+<div class="grid-item">
+is.na(a)
+</div>
+<div class="grid-item">
+is.null(a)
+</div>
+</div>
+<div class="grid-container1">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="ot">NA</span>, <span class="dv">6</span>)
+<span class="kw">is.na</span>(a)
+<span class="co">#&gt; [1] FALSE FALSE  TRUE FALSE</span>
+<span class="kw">is.null</span>(a)
+<span class="co">#&gt; [1] FALSE</span></code></pre></div>
+</div>
+</div>
+<!-- Reading and Writing Data -->
+<div class="comment_line">
+<div class="boxx" style="font-size: 25px;">
+<strong>파일 입출력 Reading and Writing Data</strong>
+</div>
+<div class="grid-container1">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## create txt file
+<span class="co"># fileConn&lt;-file(&quot;file.txt&quot;)</span>
+<span class="co"># writeLines(c(&quot;Hello&quot;,&quot;World&quot;), fileConn)</span>
+<span class="co"># close(fileConn)</span>
+
+df &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Hello&quot;</span>,<span class="st">&quot;World&quot;</span>)
+<span class="kw">write.table</span>(df, <span class="st">&#39;file2.txt&#39;</span>)
+
+df2 &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;file2.txt&#39;</span>)
+<span class="kw">print</span>(df2)
+<span class="co">#&gt;       x</span>
+<span class="co">#&gt; 1 Hello</span>
+<span class="co">#&gt; 2 World</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>,<span class="st">&quot;graph&quot;</span>)
+<span class="kw">write.csv</span>(df, <span class="st">&#39;file3.csv&#39;</span>)
+
+df3 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;file3.csv&#39;</span>)
+<span class="kw">print</span>(df3)
+<span class="co">#&gt;   X     x</span>
+<span class="co">#&gt; 1 1 apple</span>
+<span class="co">#&gt; 2 2 graph</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apple3&quot;</span>,<span class="st">&quot;graph3&quot;</span>)
+<span class="kw">save</span>(df, <span class="dt">file =</span> <span class="st">&#39;file4.Rdata&#39;</span>)
+
+<span class="kw">load</span>(<span class="st">&#39;file4.Rdata&#39;</span>)
+<span class="kw">print</span>(df)
+<span class="co">#&gt; [1] &quot;apple3&quot; &quot;graph3&quot;</span></code></pre></div>
+</div>
+</div>
+<!-- Types -->
+<div class="comment_line">
+<div class="boxx" style="font-size: 25px;">
+<strong>객체 타입 Types</strong>
+</div>
+<div class="grid-container1">
+<p>
+Coverting between common data types in R. Can always go from a higher value i the table to a lower value
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)
+<span class="kw">print</span>(a)
+<span class="co">#&gt; [1]  TRUE FALSE  TRUE</span>
+<span class="kw">typeof</span>(a)
+<span class="co">#&gt; [1] &quot;logical&quot;</span>
+
+a &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(a)
+<span class="kw">print</span>(a)
+<span class="co">#&gt; [1] 1 0 1</span>
+<span class="kw">typeof</span>(a)
+<span class="co">#&gt; [1] &quot;double&quot;</span>
+
+a &lt;-<span class="st"> </span><span class="kw">as.logical</span>(a)
+<span class="kw">print</span>(a)
+<span class="co">#&gt; [1]  TRUE FALSE  TRUE</span>
+<span class="kw">typeof</span>(a)
+<span class="co">#&gt; [1] &quot;logical&quot;</span>
+
+a &lt;-<span class="st"> </span><span class="kw">as.character</span>(a)
+<span class="kw">print</span>(a)
+<span class="co">#&gt; [1] &quot;TRUE&quot;  &quot;FALSE&quot; &quot;TRUE&quot;</span>
+<span class="kw">typeof</span>(a)
+<span class="co">#&gt; [1] &quot;character&quot;</span>
+
+a &lt;-<span class="st"> </span><span class="kw">as.factor</span>(a)
+<span class="kw">print</span>(a)
+<span class="co">#&gt; [1] TRUE  FALSE TRUE </span>
+<span class="co">#&gt; Levels: FALSE TRUE</span>
+<span class="kw">typeof</span>(a)
+<span class="co">#&gt; [1] &quot;integer&quot;</span></code></pre></div>
+</div>
+<!-- Maths Functions -->
+<div class="comment">
+<div class="boxx" style="font-size: 25px;">
+<strong>Math Functions</strong>
+</div>
+<div class="grid-container4">
+<div class="grid-item">
+<span class="tcode">log(x)</span>
+</div>
+<div class="grid-item">
+<span class="tcode">sum(x)</span>
+</div>
+<div class="grid-item">
+<span class="tcode">exp(x)</span>
+</div>
+<div class="grid-item">
+<span class="tcode">mean(x)</span>
+</div>
+<div class="grid-item">
+<span class="tcode">median(x)</span>
+</div>
+<div class="grid-item">
+<span class="tcode">max(x)</span>
+</div>
+<div class="grid-item">
+<span class="tcode">min(x)</span>
+</div>
+<div class="grid-item">
+<span class="tcode">round(x, n)</span>
+</div>
+<div class="grid-item">
+<span class="tcode">rank(x)</span>
+</div>
+<div class="grid-item">
+<span class="tcode">signif(x, n)</span>
+</div>
+<div class="grid-item">
+<span class="tcode">var(x)</span>
+</div>
+<div class="grid-item">
+<span class="tcode">cor(x, y)</span>
+</div>
+<div class="grid-item">
+<span class="tcode">sd(x)</span>
+</div>
+</div>
+</div>
+<!-- Variable Assignment -->
+<div class="comment_line">
+<div class="boxx" style="font-size: 25px;">
+<strong>Variable Assignment</strong>
+</div>
+<div class="grid-container1">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> &#39;apple&#39;</span>
+a
+<span class="co">#&gt; [1] &quot;apple&quot;</span></code></pre></div>
+</div>
+</div>
+<!-- The Environment -->
+<div class="comment_line">
+<div class="boxx" style="font-size: 25px;">
+<strong>The Environment</strong>
+</div>
+<div class="grid-container1">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())
+a &lt;-<span class="st"> &quot;apple&quot;</span>
+b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)
+c &lt;-<span class="st"> </span><span class="dv">1</span>
+
+<span class="kw">ls</span>()
+<span class="co">#&gt; [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</span>
+<span class="kw">rm</span>(a)
+<span class="kw">ls</span>()
+<span class="co">#&gt; [1] &quot;b&quot; &quot;c&quot;</span>
+<span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</code></pre></div>
+<p>
+You can use the environment panel in RStudio to browse variable in your environment.
+</p>
+</div>
+</div>
+<!-- 매트릭스 -->
+<div class="comment_line">
+<div class="boxx" style="font-size: 25px;">
+<strong>매트릭스 Matrices</strong>
+</div>
+<div class="boxx2">
+matrix basic
+</div>
+<div class="grid-container">
+<div class="grid-item">
+<span class="tcode">m &lt;- matrix(x, nrow = 3, ncol = 3)</span>
+</div>
+<div class="grid-item">
+matrix 생성
+</div>
+</div>
+<div class="grid-container3">
+<div class="grid-item">
+<img id="home" src="myss/matrix01.png">
+</div>
+<div class="grid-item">
+<span class="tcode">m[2, ]</span>
+</div>
+<div class="grid-item">
+Select a row
+</div>
+<div class="grid-item">
+<img id="home" src="myss/matrix02.png">
+</div>
+<div class="grid-item">
+<span class="tcode">m[ , 1]</span>
+</div>
+<div class="grid-item">
+Select a column
+</div>
+<div class="grid-item">
+<img id="home" src="myss/matrix03.png">
+</div>
+<div class="grid-item">
+<span class="tcode">m[2, 3]</span>
+</div>
+<div class="grid-item">
+Select an element
+</div>
+</div>
+<div class="boxx2">
+matrix 연산
+</div>
+<div class="grid-container">
+<div class="grid-item">
+<span class="tcode">t(m)</span>
+</div>
+<div class="grid-item">
+Transpose
+</div>
+<div class="grid-item">
+<span class="tcode">m %*% n</span>
+</div>
+<div class="grid-item">
+Matrix Muliplication
+</div>
+<div class="grid-item">
+<span class="tcode">solve(m, n)</span>
+</div>
+<div class="grid-item">
+Find x in: m * x = n
+</div>
+</div>
+</div>
+<!-- Lists -->
+<div class="comment_line">
+<div class="boxx" style="font-size: 25px;">
+<strong>Lists</strong>
+</div>
+<div class="grid-container1">
+<p>
+A list is a collection of elements which can be of different types.
+</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># List 생성</span>
+l &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">y =</span> <span class="kw">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>))
+l
+<span class="co">#&gt; $x</span>
+<span class="co">#&gt; [1] 1 2 3 4 5</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $y</span>
+<span class="co">#&gt; [1] &quot;a&quot; &quot;b&quot;</span>
+
+<span class="co"># List subset</span>
+l[[<span class="dv">2</span>]]
+<span class="co">#&gt; [1] &quot;a&quot; &quot;b&quot;</span>
+l[<span class="dv">1</span>]
+<span class="co">#&gt; $x</span>
+<span class="co">#&gt; [1] 1 2 3 4 5</span>
+l<span class="op">$</span>x
+<span class="co">#&gt; [1] 1 2 3 4 5</span>
+l[<span class="st">&#39;y&#39;</span>]
+<span class="co">#&gt; $y</span>
+<span class="co">#&gt; [1] &quot;a&quot; &quot;b&quot;</span></code></pre></div>
+</div>
+</div>
+<!-- Data Frames -->
+<div class="comment_line">
+<div class="boxx" style="font-size: 25px;">
+<strong>Data Frames</strong>
+</div>
+<div class="grid-container1">
+<p>
+A special case of list where all elements are the same length.
+</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Data Frame 생성</span>
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">y =</span> <span class="kw">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>))
+df
+<span class="co">#&gt;   x y</span>
+<span class="co">#&gt; 1 1 a</span>
+<span class="co">#&gt; 2 2 b</span>
+<span class="co">#&gt; 3 3 c</span>
+
+<span class="co"># Understanding a data frame</span>
+<span class="co"># View(df)</span>
+<span class="kw">head</span>(df, <span class="dv">2</span>)
+<span class="co">#&gt;   x y</span>
+<span class="co">#&gt; 1 1 a</span>
+<span class="co">#&gt; 2 2 b</span>
+
+<span class="kw">nrow</span>(df)
+<span class="co">#&gt; [1] 3</span>
+<span class="kw">ncol</span>(df)
+<span class="co">#&gt; [1] 2</span>
+<span class="kw">dim</span>(df)
+<span class="co">#&gt; [1] 3 2</span></code></pre></div>
+</div>
+<div class="boxx2">
+Matrix subsetting
+</div>
+<div class="grid-container4">
+<div class="grid-item">
+<img id="home" src="myss/matrix04.png">
+</div>
+<div class="grid-item">
+<span class="tcode">df[ , 2]</span>
+</div>
+<div class="grid-item">
+<img id="home" src="myss/matrix05.png">
+</div>
+<div class="grid-item">
+<span class="tcode">df[2, ]</span>
+</div>
+<div class="grid-item">
+<img id="home" src="myss/matrix06.png">
+</div>
+<div class="grid-item">
+<span class="tcode">df[2, 2]</span>
+</div>
+<div class="grid-item">
+<img id="home" src="myss/matrix07.png">
+</div>
+<div class="grid-item">
+<span class="tcode">df$x</span>
+</div>
+<div class="grid-item">
+<img id="home" src="myss/matrix04.png">
+</div>
+<div class="grid-item">
+<span class="tcode">df[[2]]</span>
+</div>
+</div>
+<div class="boxx2">
+Binding data frames
+</div>
+<div class="grid-container33">
+<div class="grid-item">
+<img id="home" src="myss/matrix08.png">
+</div>
+<div class="grid-item">
+<span class="tcode">cbind</span>
+</div>
+<div class="grid-item">
+Bind columns
+</div>
+<div class="grid-item">
+<img id="home" src="myss/matrix09.png">
+</div>
+<div class="grid-item">
+<span class="tcode">rbind</span>
+</div>
+<div class="grid-item">
+Bind rows
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">A &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">y=</span><span class="kw">c</span>(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>))
+B &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">y=</span><span class="dv">11</span><span class="op">:</span><span class="dv">13</span>)
+C &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="dv">4</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">y=</span><span class="kw">c</span>(<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>))
+
+<span class="kw">cbind</span>(A, B)
+<span class="co">#&gt;   x y  y</span>
+<span class="co">#&gt; 1 1 a 11</span>
+<span class="co">#&gt; 2 2 b 12</span>
+<span class="co">#&gt; 3 3 c 13</span>
+
+<span class="kw">rbind</span>(A, C)
+<span class="co">#&gt;   x y</span>
+<span class="co">#&gt; 1 1 a</span>
+<span class="co">#&gt; 2 2 b</span>
+<span class="co">#&gt; 3 3 c</span>
+<span class="co">#&gt; 4 4 d</span>
+<span class="co">#&gt; 5 5 e</span></code></pre></div>
+</div>
+</div>
+<!-- Strings -->
+<div class="comment_line">
+<div class="boxx" style="font-size: 25px;">
+<strong>Strings</strong>
+</div>
+<div class="grid-container1">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># paste</span>
+x =<span class="st"> &quot;Hello&quot;</span>
+y =<span class="st"> &quot;World!&quot;</span>
+z =<span class="st"> &quot;My name is DK&quot;</span>
+
+<span class="kw">paste</span>(x, y)
+<span class="co">#&gt; [1] &quot;Hello World!&quot;</span>
+<span class="kw">paste</span>(x, y, <span class="dt">sep=</span><span class="st">&#39;&#39;</span>)
+<span class="co">#&gt; [1] &quot;HelloWorld!&quot;</span>
+<span class="kw">paste</span>(x, y, <span class="dt">sep=</span><span class="st">&#39;-&#39;</span>)
+<span class="co">#&gt; [1] &quot;Hello-World!&quot;</span>
+
+<span class="kw">paste</span>(z, <span class="dt">collapse=</span><span class="st">&#39; &#39;</span>)
+<span class="co">#&gt; [1] &quot;My name is DK&quot;</span>
+
+<span class="co"># Find regular expression matches in x.</span>
+pattern =<span class="st"> &quot;DK&quot;</span>
+replace =<span class="st"> &quot;Dookyung&quot;</span>
+
+<span class="kw">grep</span>(pattern, z)
+<span class="co">#&gt; [1] 1</span>
+
+<span class="co"># replace matches in x with a string.</span>
+<span class="kw">gsub</span>(pattern, replace, z)
+<span class="co">#&gt; [1] &quot;My name is Dookyung&quot;</span>
+
+<span class="kw">toupper</span>(replace)
+<span class="co">#&gt; [1] &quot;DOOKYUNG&quot;</span>
+<span class="kw">tolower</span>(replace)
+<span class="co">#&gt; [1] &quot;dookyung&quot;</span>
+<span class="kw">nchar</span>(replace)
+<span class="co">#&gt; [1] 8</span></code></pre></div>
+</div>
+</div>
+<!-- Factors -->
+<div class="boxx_line" style="font-size: 25px;">
+<strong>Factors</strong>
+</div>
+<pre><code># Factors
+factor(x)
+
+cut(x, breaks = 4)</code></pre>
+<hr>
+<!-- Statistics -->
+<div class="boxx_line" style="font-size: 25px;">
+<strong>Statistics</strong>
+</div>
+<div class="grid-container2">
+<div class="grid-item">
+<span class="tcode">lm(y ~ x, data=df)</span>
+</div>
+<div class="grid-item">
+Linear model.
+</div>
+<div class="grid-item">
+<span class="tcode">glm(y ~ x, data=df)</span>
+</div>
+<div class="grid-item">
+Generalised linear model.
+</div>
+<div class="grid-item">
+<span class="tcode">summary(x)</span>
+</div>
+<div class="grid-item">
+Get more detailed information out a model.
+</div>
+<div class="grid-item">
+<span class="tcode">t.test(x, y)</span>
+</div>
+<div class="grid-item">
+Perform a t-test for different between means
+</div>
+<div class="grid-item">
+<span class="tcode">pairwise.t.test()</span>
+</div>
+<div class="grid-item">
+Perform a t-test for paired data.
+</div>
+<div class="grid-item">
+<span class="tcode">prop.test</span>
+</div>
+<div class="grid-item">
+Test for a difference between proportions.
+</div>
+<div class="grid-item">
+<span class="tcode">aov</span>
+</div>
+<div class="grid-item">
+Analysis of variance.
+</div>
+</div>
+<hr>
+<!-- Factors -->
+<div class="boxx_line" style="font-size: 25px;">
+<strong>Factors</strong>
+</div>
+<pre><code># Factors
+factor(x)
+
+cut(x, breaks = 4)</code></pre>
+<hr>
+<!-- Statistics -->
+<div class="boxx_line" style="font-size: 25px;">
+<strong>Statistics</strong>
+</div>
+<div class="grid-container2">
+<div class="grid-item">
+<span class="tcode">lm(y ~ x, data=df)</span>
+</div>
+<div class="grid-item">
+Linear model.
+</div>
+<div class="grid-item">
+<span class="tcode">glm(y ~ x, data=df)</span>
+</div>
+<div class="grid-item">
+Generalised linear model.
+</div>
+<div class="grid-item">
+<span class="tcode">summary(x)</span>
+</div>
+<div class="grid-item">
+Get more detailed information out a model.
+</div>
+<div class="grid-item">
+<span class="tcode">t.test(x, y)</span>
+</div>
+<div class="grid-item">
+Perform a t-test for different between means
+</div>
+<div class="grid-item">
+<span class="tcode">pairwise.t.test()</span>
+</div>
+<div class="grid-item">
+Perform a t-test for paired data.
+</div>
+<div class="grid-item">
+<span class="tcode">prop.test</span>
+</div>
+<div class="grid-item">
+Test for a difference between proportions.
+</div>
+<div class="grid-item">
+<span class="tcode">aov</span>
+</div>
+<div class="grid-item">
+Analysis of variance.
+</div>
+</div>
+<hr>
+<!-- Distributions -->
+<div class="boxx_line" style="font-size: 25px;">
+<strong>Distributions</strong>
+</div>
+<p><br><br></p>
+<table>
+<caption><span id="tab:unnamed-chunk-22">Table 2.1: </span>Distribution table</caption>
+<thead>
+<tr class="header">
+<th align="left">kind</th>
+<th align="left">Random_Var</th>
+<th align="left">Density_Func</th>
+<th align="left">Cumulative_Dist</th>
+<th align="left">Quantile</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Normal</td>
+<td align="left">rnorm</td>
+<td align="left">dnorm</td>
+<td align="left">pnorm</td>
+<td align="left">qnorm</td>
+</tr>
+<tr class="even">
+<td align="left">Poisson</td>
+<td align="left">rpois</td>
+<td align="left">dpois</td>
+<td align="left">ppois</td>
+<td align="left">qpois</td>
+</tr>
+<tr class="odd">
+<td align="left">Binomial</td>
+<td align="left">rbinom</td>
+<td align="left">dbinom</td>
+<td align="left">pbinom</td>
+<td align="left">qbinom</td>
+</tr>
+<tr class="even">
+<td align="left">Uniform</td>
+<td align="left">runif</td>
+<td align="left">dunif</td>
+<td align="left">punif</td>
+<td align="left">qunif</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<!-- Plotting -->
+<div class="boxx_line" style="font-size: 25px;">
+<strong>Plotting</strong>
+</div>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">30</span>)
+y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">30</span>) <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">30</span>
+
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
+<span class="kw">plot</span>(x)
+<span class="kw">plot</span>(y, x)</code></pre></div>
+<p><img src="20-BaseR_files/figure-html/unnamed-chunk-23-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">duration =<span class="st"> </span>faithful<span class="op">$</span>eruptions 
+
+<span class="kw">hist</span>(duration, <span class="dt">right=</span><span class="ot">FALSE</span>)</code></pre></div>
+<p><img src="20-BaseR_files/figure-html/unnamed-chunk-24-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<hr>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-import.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

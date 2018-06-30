@@ -1,0 +1,82 @@
+```{r include=FALSE, cache=FALSE}
+set.seed(1014)
+options(digits = 3)
+
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  cache = TRUE,
+  out.width = "70%",
+  fig.align = 'center',
+  fig.width = 6,
+  fig.asp = 0.618,  # 1 / phi
+  fig.show = "hold"
+)
+
+options(dplyr.print_min = 6, dplyr.print_max = 6)
+```
+# (PART) Data Science via R {-} 
+
+# Base R
+
+## Running R code
+
+The previous section showed you a couple of examples of running R code. Code in the book looks like this:
+
+```{r, eval = TRUE}
+1 + 2
+#> [1] 3
+```
+
+If you run the same code in your local console, it will look like this:
+
+```
+> 1 + 2
+[1] 3
+```
+
+There are two main differences. In your console, you type after the `>`, called the __prompt__; we don't show the prompt in the book. In the book, output is commented out with `#>`; in your console it appears directly after your code. These two differences mean that if you're working with an electronic version of the book, you can easily copy code out of the book and into the console.
+
+Throughout the book we use a consistent set of conventions to refer to code:
+
+* Functions are in a code font and followed by parentheses, like `sum()`, 
+  or `mean()`.
+
+* Other R objects (like data or function arguments) are in a code font,
+  without parentheses, like `flights` or `x`.
+  
+* If we want to make it clear what package an object comes from, we'll use
+  the package name followed by two colons, like `dplyr::mutate()`, or   
+  `nycflights13::flights`. This is also valid R code.
+
+
+## 데이터 타입
+
+
+
+## 데이터분석연구회 발표자료
+
+
+
+## CheatSheet
+
+### 도움말 보기
+
+```{r echo = FALSE, out.width = "95%", fig.align='left'}
+knitr::include_graphics("myss/A01_help.png")
+```
+
+R을 배우는 가장 좋은 방법중의 하나는 도움말을 잘 이용하는 것이다. R 커뮤니티의 개발자들은 Base R과 패키지에 포함된 모든 함수, 데이터, 객체들에 대해 자세한 도움말을 제공하고 있다.
+
+* mean 함수 도움말 보기
+
+```{r, out.width = "85%"}
+?mean 
+```
+
+R 콘솔에 `?mean`이라고 치면 mean 함수에 대한 도움말이 아래와 같이 __Help__창에 나타난다. 일반적으로 도움말의 하단에는 사용자들이 해당 함수를 간단히 시현해 볼 수 있는 샘플코드가 포함되어 있다. 
+
+```{r echo = FALSE, out.width = "95%", fig.align='left'}
+knitr::include_graphics("myss/figure_A01_mean.png")
+```
+

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Data Scientist Handbook</title>
+  <meta name="description" content="This book will teach you how to do data science with R. You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it. In this book, you will find a practicum of skills for data science. Just as a chemist learns how to clean test tubes and stock a lab, you’ll learn how to clean data and draw plots—and many other things besides. These are the skills that allow data science to happen, and here you will find the best practices for doing each of these things with R. You’ll learn how to use the grammar of graphics, literate programming, and reproducible research to save time. You’ll also learn how to manage cognitive resources to facilitate discoveries when wrangling, visualising, and exploring data.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Data Scientist Handbook" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="<a href="https://dkkim.netlify.com/" class="uri">https://dkkim.netlify.com/</a>" />
+  <meta property="og:image" content="<a href="https://dkkim.netlify.com/" class="uri">https://dkkim.netlify.com/</a>cover.png" />
+  <meta property="og:description" content="This book will teach you how to do data science with R. You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it. In this book, you will find a practicum of skills for data science. Just as a chemist learns how to clean test tubes and stock a lab, you’ll learn how to clean data and draw plots—and many other things besides. These are the skills that allow data science to happen, and here you will find the best practices for doing each of these things with R. You’ll learn how to use the grammar of graphics, literate programming, and reproducible research to save time. You’ll also learn how to manage cognitive resources to facilitate discoveries when wrangling, visualising, and exploring data." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Data Scientist Handbook" />
+  
+  <meta name="twitter:description" content="This book will teach you how to do data science with R. You’ll learn how to get your data into R, get it into the most useful structure, transform it, visualise it and model it. In this book, you will find a practicum of skills for data science. Just as a chemist learns how to clean test tubes and stock a lab, you’ll learn how to clean data and draw plots—and many other things besides. These are the skills that allow data science to happen, and here you will find the best practices for doing each of these things with R. You’ll learn how to use the grammar of graphics, literate programming, and reproducible research to save time. You’ll also learn how to manage cognitive resources to facilitate discoveries when wrangling, visualising, and exploring data." />
+  <meta name="twitter:image" content="<a href="https://dkkim.netlify.com/" class="uri">https://dkkim.netlify.com/</a>cover.png" />
+
+<meta name="author" content="Dookyung Kim">
+
+
+<meta name="date" content="2018-03-17">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="why-r.html">
+<link rel="next" href="tidyverse-1.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Scientist Handbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-you-will-learn"><i class="fa fa-check"></i><b>1.1</b> What you will learn</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="section-2.html"><a href="section-2.html"><i class="fa fa-check"></i><b>2</b> 데이터사이언스</a><ul>
+<li class="chapter" data-level="2.1" data-path="section-2.html"><a href="section-2.html#tidyverse"><i class="fa fa-check"></i><b>2.1</b> Tidyverse</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-scientist-tools.html"><a href="data-scientist-tools.html"><i class="fa fa-check"></i><b>3</b> Data Scientist Tools</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-scientist-tools.html"><a href="data-scientist-tools.html#r"><i class="fa fa-check"></i><b>3.1</b> R</a></li>
+<li class="chapter" data-level="3.2" data-path="data-scientist-tools.html"><a href="data-scientist-tools.html#python"><i class="fa fa-check"></i><b>3.2</b> Python</a></li>
+<li class="chapter" data-level="3.3" data-path="data-scientist-tools.html"><a href="data-scientist-tools.html#matlab"><i class="fa fa-check"></i><b>3.3</b> Matlab</a></li>
+<li class="chapter" data-level="3.4" data-path="data-scientist-tools.html"><a href="data-scientist-tools.html#sas"><i class="fa fa-check"></i><b>3.4</b> SAS</a></li>
+<li class="chapter" data-level="3.5" data-path="data-scientist-tools.html"><a href="data-scientist-tools.html#what-you-wont-learn"><i class="fa fa-check"></i><b>3.5</b> What you won’t learn</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="data-scientist-tools.html"><a href="data-scientist-tools.html#big-data"><i class="fa fa-check"></i><b>3.5.1</b> Big data</a></li>
+<li class="chapter" data-level="3.5.2" data-path="data-scientist-tools.html"><a href="data-scientist-tools.html#python-julia-and-friends"><i class="fa fa-check"></i><b>3.5.2</b> Python, Julia, and friends</a></li>
+<li class="chapter" data-level="3.5.3" data-path="data-scientist-tools.html"><a href="data-scientist-tools.html#non-rectangular-data"><i class="fa fa-check"></i><b>3.5.3</b> Non-rectangular data</a></li>
+<li class="chapter" data-level="3.5.4" data-path="data-scientist-tools.html"><a href="data-scientist-tools.html#hypothesis-confirmation"><i class="fa fa-check"></i><b>3.5.4</b> Hypothesis confirmation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="why-r.html"><a href="why-r.html"><i class="fa fa-check"></i><b>4</b> Why R</a></li>
+<li class="chapter" data-level="5" data-path="how-to-study.html"><a href="how-to-study.html"><i class="fa fa-check"></i><b>5</b> how to study</a></li>
+<li class="chapter" data-level="6" data-path="tidyverse-1.html"><a href="tidyverse-1.html"><i class="fa fa-check"></i><b>6</b> Tidyverse</a></li>
+<li class="chapter" data-level="7" data-path="this-book-.html"><a href="this-book-.html"><i class="fa fa-check"></i><b>7</b> This book 구성</a><ul>
+<li class="chapter" data-level="7.1" data-path="this-book-.html"><a href="this-book-.html#how-this-book-is-organised"><i class="fa fa-check"></i><b>7.1</b> How this book is organised</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i><b>8</b> Prerequisites</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="prerequisites.html"><a href="prerequisites.html#r-1"><i class="fa fa-check"></i><b>8.0.1</b> R</a></li>
+<li class="chapter" data-level="8.0.2" data-path="prerequisites.html"><a href="prerequisites.html#rstudio"><i class="fa fa-check"></i><b>8.0.2</b> RStudio</a></li>
+<li class="chapter" data-level="8.0.3" data-path="prerequisites.html"><a href="prerequisites.html#the-tidyverse"><i class="fa fa-check"></i><b>8.0.3</b> The tidyverse</a></li>
+<li class="chapter" data-level="8.0.4" data-path="prerequisites.html"><a href="prerequisites.html#other-packages"><i class="fa fa-check"></i><b>8.0.4</b> Other packages</a></li>
+</ul></li>
+<li class="part"><span><b>II Data Science via R</b></span></li>
+<li class="chapter" data-level="9" data-path="base-r.html"><a href="base-r.html"><i class="fa fa-check"></i><b>9</b> Base R</a><ul>
+<li class="chapter" data-level="9.1" data-path="base-r.html"><a href="base-r.html#-"><i class="fa fa-check"></i><b>9.1</b> 데이터 타입</a></li>
+<li class="chapter" data-level="9.2" data-path="base-r.html"><a href="base-r.html#-"><i class="fa fa-check"></i><b>9.2</b> 데이터분석연구회 발표자료</a></li>
+</ul></li>
+<li class="part"><span><b>III Data Science via the tidyverse</b></span></li>
+<li class="chapter" data-level="10" data-path="tidyverse-2.html"><a href="tidyverse-2.html"><i class="fa fa-check"></i><b>10</b> Tidyverse</a><ul>
+<li class="chapter" data-level="10.1" data-path="tidyverse-2.html"><a href="tidyverse-2.html#import-data-into-r"><i class="fa fa-check"></i><b>10.1</b> import data into R</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="functional-programming.html"><a href="functional-programming.html"><i class="fa fa-check"></i><b>11</b> Functional Programming</a></li>
+<li class="chapter" data-level="12" data-path="high-computing.html"><a href="high-computing.html"><i class="fa fa-check"></i><b>12</b> High Computing</a></li>
+<li class="part"><span><b>IV Reproducible Research with R</b></span></li>
+<li class="chapter" data-level="13" data-path="report-publication.html"><a href="report-publication.html"><i class="fa fa-check"></i><b>13</b> Report &amp; Publication</a><ul>
+<li class="chapter" data-level="13.1" data-path="report-publication.html"><a href="report-publication.html#rmarkdown"><i class="fa fa-check"></i><b>13.1</b> Rmarkdown</a></li>
+<li class="chapter" data-level="13.2" data-path="report-publication.html"><a href="report-publication.html#shiny"><i class="fa fa-check"></i><b>13.2</b> Shiny</a></li>
+<li class="chapter" data-level="13.3" data-path="report-publication.html"><a href="report-publication.html#web-site"><i class="fa fa-check"></i><b>13.3</b> Web Site</a></li>
+<li class="chapter" data-level="13.4" data-path="report-publication.html"><a href="report-publication.html#plumber"><i class="fa fa-check"></i><b>13.4</b> Plumber</a></li>
+<li class="chapter" data-level="13.5" data-path="report-publication.html"><a href="report-publication.html#excel-dashboard"><i class="fa fa-check"></i><b>13.5</b> Excel Dashboard</a></li>
+<li class="chapter" data-level="13.6" data-path="report-publication.html"><a href="report-publication.html#section"><i class="fa fa-check"></i><b>13.6</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>14</b> Application</a><ul>
+<li class="chapter" data-level="14.1" data-path="base-r.html"><a href="base-r.html#-"><i class="fa fa-check"></i><b>14.1</b> 데이터 수집</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="applications.html"><a href="applications.html#api"><i class="fa fa-check"></i><b>14.1.1</b> API</a></li>
+<li class="chapter" data-level="14.1.2" data-path="applications.html"><a href="applications.html#-python-"><i class="fa fa-check"></i><b>14.1.2</b> 크롤링 (python 포함)</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="applications.html"><a href="applications.html#-reading"><i class="fa fa-check"></i><b>14.2</b> 데이터 reading</a></li>
+<li class="chapter" data-level="14.3" data-path="base-r.html"><a href="base-r.html#-"><i class="fa fa-check"></i><b>14.3</b> 데이터 정제</a></li>
+<li class="chapter" data-level="14.4" data-path="applications.html"><a href="applications.html#visualization"><i class="fa fa-check"></i><b>14.4</b> visualization</a></li>
+<li class="chapter" data-level="14.5" data-path="applications.html"><a href="applications.html#modeling"><i class="fa fa-check"></i><b>14.5</b> modeling</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="-a.html"><a href="-a.html"><i class="fa fa-check"></i><b>A</b> 칼만필터링 A</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Scientist Handbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="how-to-study" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> how to study</h1>
+<p>(new way of Data Science)</p>
+<p>First you must <strong>import</strong> your data into R. This typically means that you take data stored in a file, database, or web API, and load it into a data frame in R. If you can’t get your data into R, you can’t do data science on it!</p>
+<p>Once you’ve imported your data, it is a good idea to <strong>tidy</strong> it. Tidying your data means storing it in a consistent form that matches the semantics of the dataset with the way it is stored. In brief, when your data is tidy, each column is a variable, and each row is an observation. Tidy data is important because the consistent structure lets you focus your struggle on questions about the data, not fighting to get the data into the right form for different functions.</p>
+<p>Once you have tidy data, a common first step is to <strong>transform</strong> it. Transformation includes narrowing in on observations of interest (like all people in one city, or all data from the last year), creating new variables that are functions of existing variables (like computing velocity from speed and time), and calculating a set of summary statistics (like counts or means). Together, tidying and transforming are called <strong>wrangling</strong>, because getting your data in a form that’s natural to work with often feels like a fight!</p>
+<p>Once you have tidy data with the variables you need, there are two main engines of knowledge generation: visualisation and modelling. These have complementary strengths and weaknesses so any real analysis will iterate between them many times.</p>
+<p><strong>Visualisation</strong> is a fundamentally human activity. A good visualisation will show you things that you did not expect, or raise new questions about the data. A good visualisation might also hint that you’re asking the wrong question, or you need to collect different data. Visualisations can surprise you, but don’t scale particularly well because they require a human to interpret them.</p>
+<p><strong>Models</strong> are complementary tools to visualisation. Once you have made your questions sufficiently precise, you can use a model to answer them. Models are a fundamentally mathematical or computational tool, so they generally scale well. Even when they don’t, it’s usually cheaper to buy more computers than it is to buy more brains! But every model makes assumptions, and by its very nature a model cannot question its own assumptions. That means a model cannot fundamentally surprise you.</p>
+<p>The last step of data science is <strong>communication</strong>, an absolutely critical part of any data analysis project. It doesn’t matter how well your models and visualisation have led you to understand the data unless you can also communicate your results to others.</p>
+<p>Surrounding all these tools is <strong>programming</strong>. Programming is a cross-cutting tool that you use in every part of the project. You don’t need to be an expert programmer to be a data scientist, but learning more about programming pays off because becoming a better programmer allows you to automate common tasks, and solve new problems with greater ease.</p>
+<p>You’ll use these tools in every data science project, but for most projects they’re not enough. There’s a rough 80-20 rule at play; you can tackle about 80% of every project using the tools that you’ll learn in this book, but you’ll need other tools to tackle the remaining 20%. Throughout this book we’ll point you to resources where you can learn more.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="why-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tidyverse-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
